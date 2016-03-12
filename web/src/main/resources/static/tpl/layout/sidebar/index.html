@@ -1,0 +1,32 @@
+<div class="sidebar-inner c-overflow">
+    <div class="profile-menu">
+        <a href="#">
+            <div class="profile-pic">
+                <img src="{{profileInfo.photo}}" alt="">
+            </div>
+            <div class="profile-info">
+                {{profileInfo.hello}}
+                <i class="zmdi zmdi-arrow-drop-down"></i>
+            </div>
+        </a>
+        <ul class="main-menu">
+            <li>
+                <a data-target="profile/password" href="#_data/profile/password.json?tpl=profile/password"><i class="zmdi zmdi-settings"></i> 修改密码</a>
+            </li>
+            <li>
+                <a data-action="logout" href="#"><i class="zmdi zmdi-time-restore"></i> 退出</a>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="main-menu">
+        <li><a href="#"><i class="zmdi zmdi-home"></i> 主页</a></li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-widgets"></i> 系统管理</a>
+            <ul>
+                <li><a data-target="bgd/post/index" href="#user/post/list?tpl=bgd/post/index">用户职位</a></li>
+                <li><a data-target="widget/demo" href="#_data/success.json?tpl=widget/demo">示例</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

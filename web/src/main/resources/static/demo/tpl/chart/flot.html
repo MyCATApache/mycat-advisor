@@ -1,0 +1,102 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Line Chart with curved edges <small>Curved edges made possible using curvedLines Flot plugin.</small></h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-edge">
+                        <div id="curved-line-chart" class="flot-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Lines Chart <small>Same above example without curved edges.</small></h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-edge">
+                        <div id="line-chart" class="flot-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Bar Chart</h2>
+                </div>
+
+                <div class="card-body card-padding-sm">
+                    <div id="bar-chart" class="flot-chart"></div>
+                    <div class="flc-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Dynamic Chart</h2>
+                </div>
+
+                <div class="card-body card-padding-sm">
+                    <div id="dynamic-chart" class="flot-chart"></div>
+                    <div class="flc-dynamic"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Pie Chart</h2>
+                </div>
+
+                <div class="card-body card-padding">
+                    <div id="pie-chart" class="flot-chart-pie"></div>
+                    <div class="flc-pie hidden-xs"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Donut Chart</h2>
+                </div>
+
+                <div class="card-body card-padding">
+                    <div id="donut-chart" class="flot-chart-pie"></div>
+                    <div class="flc-donut hidden-xs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="lib/chart/flot/jquery.flot.js"></script>
+<script src="lib/chart/flot/jquery.flot.resize.js"></script>
+<script src="lib/chart/flot/jquery.flot.pie.js"></script>
+<script src="lib/chart/flot.tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="lib/chart/flot-orderBars/jquery.flot.orderBars.js"></script>
+<script src="lib/chart/flot.curvedlines/curvedLines.js"></script>
+
+<script src="lib/chart/flot-charts/curved-line-chart.js"></script>
+<script src="lib/chart/flot-charts/line-chart.js"></script>
+<script src="lib/chart/flot-charts/bar-chart.js"></script>
+<script src="lib/chart/flot-charts/dynamic-chart.js"></script>
+<script src="lib/chart/flot-charts/pie-chart.js"></script>
+
+<script>
+    // TODO
+</script>

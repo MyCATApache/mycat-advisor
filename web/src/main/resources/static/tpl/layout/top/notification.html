@@ -1,0 +1,26 @@
+<a data-toggle="dropdown" class="tm-notification" href=""><i class="tmn-counts">{{notification.num}}</i></a>
+
+<div class="dropdown-menu dropdown-menu-lg pull-right">
+    <div class="listview" id="notifications">
+        <div class="lv-header">
+            {{lang.menu.notification}}
+        </div>
+        <div class="lv-body">
+            {{each notification.list}}
+            <a class="lv-item" href="#">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="zmdi zmdi-caret-right"></i>
+                    </div>
+                    <div class="media-body">
+                        <div class="lv-title">{{$value.title}}</div>
+                        <small class="lv-small">{{$value.text}}</small>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+
+        <a class="lv-footer" href="#">{{lang.btn.viewAll}}</a>
+    </div>
+</div>

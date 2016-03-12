@@ -1,0 +1,96 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="card">
+        <div class="listview lv-bordered lv-lg">
+            <div class="lv-header-alt clearfix">
+                <h2 class="lvh-label hidden-xs">告警信息</h2>
+
+                <div class="lvh-search">
+                    <input type="text" placeholder="查询..." class="lvhs-input">
+
+                    <i class="lvh-search-close">&times;</i>
+                </div>
+
+                <ul class="lv-actions actions">
+                    <li>
+                        <a href="#" class="lvh-search-trigger">
+                            <i class="zmdi zmdi-search"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" aria-expanded="true">
+                            <i class="zmdi zmdi-sort"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="void(0)">发生时间</a>
+                            </li>
+                            <li>
+                                <a href="void(0)">修改时间</a>
+                            </li>
+                            <li>
+                                <a href="void(0)">地点</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown" aria-expanded="true">
+                            <i class="zmdi zmdi-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="void(0)">Refresh</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lv-body">
+                {{each list}}
+                <div class="lv-item media">
+                    <div class="checkbox pull-left">
+                        <label>
+                            <input type="checkbox" value="">
+                            <i class="input-helper"></i>
+                        </label>
+                    </div>
+                    <div class="pull-left">
+                        <img class="lv-img-sm" src="{{$value.ico}}" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lv-title">{{$value.title}}</div>
+                        <small class="lv-small">{{$value.deltail}}</small>
+
+                        <ul class="lv-attrs">
+                            <li>时间: {{$value.DateTime | dateFormat}}</li>
+                            <li>电话: {{$value.tel}}</li>
+                            <li>编号: {{$value.no}}</li>
+                        </ul>
+
+                        <div class="lv-actions actions dropdown">
+                            <a href="" data-toggle="dropdown" aria-expanded="true">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="void(0)">去处理</a>
+                                </li>
+                                <li>
+                                    <a href="void(0)">删除</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{#pagination}}
+    </div>
+</div>

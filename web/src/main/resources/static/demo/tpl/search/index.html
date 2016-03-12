@@ -1,0 +1,201 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="card">
+        <div class="card-header">
+            <h2>查询DEMO</h2>
+            <ul class="actions">
+                <li>
+                    <a href="#_data/search/new.json?tpl=search/editM" class="btn-modal">
+                        <i class="zmdi zmdi-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="upload-xsl">
+                        <i class="zmdi zmdi-upload"></i>
+                        <input class="hidden" type="file" data-url="_data/error.json" name="files[]" multiple>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-export" data-url="_data/export/data.json" data-form-id="frmSearch">
+                        <i class="zmdi zmdi-download"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bootgrid-header container-fluid">
+            <form id="frmSearch" action="#_data/search/index.json?tpl=search/index" role="form">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+                            <div class="fg-line">
+                                <input type="text" class="form-control auto-complete" name="txtMain"
+                                       data-url="_data/typeahead/all.json" value="{{query.txtMain}}"
+                                       placeholder="主要查询条件(自动完成)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary btn-sm m-t-5 waves-effect btn-search">
+                            {{lang.btn.search}}
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+                            <div class="fg-line">
+                                <input type="text" class="form-control auto-select" name="txtSelect"
+                                       data-url="_data/typeahead/all.json" value="{{query.txtSelect}}"
+                                       data-text="{{query.txtSelectText}}"
+                                       placeholder="自动完成(只能选择)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+                            <div class="fg-line">
+                                <select class="select-picker" name="selNormal" data-value="{{query.selNormal}}">
+                                    <option value="">常规</option>
+                                    <option>重庆</option>
+                                    <option>北京</option>
+                                    <option>天津</option>
+                                    <option>上海</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+                            <div class="fg-line">
+                                <select class="select-picker" name="selSearch" data-value="{{query.selSearch}}"
+                                        data-live-search="true">
+                                    <option value="">可查询</option>
+                                    <option>重庆</option>
+                                    <option>北京</option>
+                                    <option>天津</option>
+                                    <option>上海</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+                            <div class="fg-line">
+                                <select class="select-picker" name="selGroup" data-value="{{query.selGroup}}"
+                                        data-live-search="true">
+                                    <option value="">分组选择</option>
+                                    <optgroup label="直辖市">
+                                        <option>重庆</option>
+                                        <option>北京</option>
+                                        <option>天津</option>
+                                        <option>上海</option>
+                                    </optgroup>
+                                    <optgroup label="河北省">
+                                        <option>石家庄</option>
+                                        <option>唐山</option>
+                                        <option>保定</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+
+                            <div class="dtp-container fg-line">
+                                <input type='text' class="form-control date-picker" name="dateBegin"
+                                       value="{{query.dateBegin}}" placeholder="{{lang.search.dateBegin}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+
+                            <div class="dtp-container fg-line">
+                                <input type='text' class="form-control date-picker" name="dateEnd"
+                                       value="{{query.dateEnd}}" placeholder="{{lang.search.dateEnd}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+
+                            <div class="dtp-container fg-line">
+                                <input type='text' class="form-control daterange-picker" name="daterange"
+                                       value="{{query.daterange}}" placeholder="{{lang.search.daterange}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+
+                            <div class="dtp-container fg-line">
+                                <input type='text' class="form-control date-time-picker" name="datetime"
+                                       value="{{query.datetime}}" placeholder="可以选择时间">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Nickname</th>
+                    <th>DateTime</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{each list}}
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{$value.firstName}}</td>
+                    <td>{{$value.lastName}}</td>
+                    <td>{{$value.userName}}</td>
+                    <td>{{$value.nickName}}</td>
+                    <td>{{$value.DateTime | dateFormat}}</td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-default btn-icon btn-modal" data-size="modal-lg" data-href="#_data/search/edit.json?tpl=search/editM&id={{$index}}">
+                            <span class="zmdi zmdi-edit"></span>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-danger btn-icon btn-del" data-id="{{$index}}"
+                                data-url="_data/error.json">
+                            <span class="zmdi zmdi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{#pagination}}
+    </div>
+</div>

@@ -1,3 +1,0 @@
-# mycat-advisor
-
-dd

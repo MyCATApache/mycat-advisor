@@ -1,0 +1,78 @@
+<div class="sidebar-inner c-overflow">
+    <div class="profile-menu">
+        <a href="#">
+            <div class="profile-pic">
+                <img src="{{profileInfo.photo}}" alt="">
+            </div>
+            <div class="profile-info">
+                {{profileInfo.hello}}
+                <i class="zmdi zmdi-arrow-drop-down"></i>
+            </div>
+        </a>
+        <ul class="main-menu">
+            <li>
+                <a data-target="profile/password" href="#_data/profile/password.json?tpl=profile/password"><i class="zmdi zmdi-settings"></i> 修改密码</a>
+            </li>
+            <li>
+                <a data-action="logout" href="#"><i class="zmdi zmdi-time-restore"></i> 退出</a>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="main-menu">
+        <li><a href="#"><i class="zmdi zmdi-home"></i> 主页</a></li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-widgets"></i> 挂件</a>
+            <ul>
+                <li><a data-target="widget/template" href="#_data/success.json?tpl=widget/template">模板</a></li>
+                <li><a data-target="widget/demo" href="#_data/success.json?tpl=widget/demo">示例</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-view-list"></i> 表格</a>
+            <ul>
+                <li><a data-target="table/base" href="#_data/table/base.json?tpl=table/base&target=table/base">普通表格</a></li>
+                <li><a data-target="table/checkbox" href="#_data/table/checkbox.json?tpl=table/checkbox">复选框表格</a></li>
+                <li><a data-target="table/tree" href="#_data/table/tree.json?tpl=table/tree">树形表格</a></li>
+                <li><a data-target="table/dyna-tree" href="#_data/table/dyna-tree/root.json?tpl=table/dyna-tree">动态树形表格</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-trending-up"></i> 图表</a>
+            <ul>
+                <li><a data-target="chart/flot" href="#_data/chart/flot.json?tpl=chart/flot">Flot</a></li>
+                <li><a data-target="chart/sparkline" href="#_data/chart/sparkline.json?tpl=chart/sparkline">Sparkline</a></li>
+                <li><a data-target="chart/easypie" href="#_data/chart/easypie.json?tpl=chart/easypie">Easy Pie</a></li>
+                <li><a data-target="echart/index" href="#_data/echart/index.json?tpl=echart/index">Echart</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-image"></i> 多媒体</a>
+            <ul>
+                <li><a data-target="media/template" href="#_data/success.json?tpl=media/template">模板</a></li>
+                <li><a data-target="media/gallery" href="#_data/success.json?tpl=media/gallery">画廊</a></li>
+                <li><a data-target="media/timeline" href="#_data/success.json?tpl=media/timeline">时间轴</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-collection-item"></i> 示例页面</a>
+            <ul>
+                <li><a data-target="search/index" href="#_data/search/index.json?tpl=search/index">查询</a></li>
+                <li><a data-target="list/alert" href="#_data/list/alert.json?tpl=list/alert">告警列表</a></li>
+                <li><a data-target="notice/index" href="#_data/notice/index.json?tpl=notice/index">公告</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#"><i class="zmdi zmdi-swap-alt"></i> 用户接口</a>
+            <ul>
+                <li><a data-target="interface/typography" href="#_data/success.json?tpl=interface/typography">排版</a></li>
+                <li><a data-target="interface/classes" href="#_data/success.json?tpl=interface/classes">样式</a></li>
+                <li><a data-target="interface/color" href="#_data/success.json?tpl=interface/color">色彩</a></li>
+                <li><a data-target="interface/animations" href="#_data/success.json?tpl=interface/animations">动画</a></li>
+                <li><a data-target="interface/buttons" href="#_data/success.json?tpl=interface/buttons">按钮</a></li>
+                <li><a data-target="interface/icons" href="#_data/success.json?tpl=interface/icons">图标</a></li>
+                <li><a data-target="interface/components" href="#_data/success.json?tpl=interface/components">组件</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

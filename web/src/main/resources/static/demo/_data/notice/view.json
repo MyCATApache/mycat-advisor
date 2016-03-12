@@ -1,0 +1,18 @@
+{
+  "flag": true,
+  "msg": "",
+  "data": {
+    "breadcrumbs": [
+      {
+        "title": "公告列表",
+        "href": "#_data/notice/index.json?tpl=notice/index"
+      },
+      {
+        "title": "测试公告标题"
+      }
+    ],
+    "DateTime": "1441075074406",
+    "nTitle": "测试公告标题",
+    "nTxt": "<p>abc</p><p>你好！！</p><ul><li>B</li><li>C</li><li>D</li></ul>"
+  }
+}

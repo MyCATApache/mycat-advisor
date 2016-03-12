@@ -1,0 +1,49 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="card">
+        <div class="card-header">
+            <h2>树形表格
+                <small>静态数据demo</small>
+            </h2>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>大小</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody class="tbl-tree tree-single" data-lvl="2">
+                {{each list}}
+                <tr id="{{$value.id}}" pid="{{$value.pid}}">
+                    <td>
+                        <label class="checkbox checkbox-inline">
+                            <input class="chk-line" type="checkbox" value="{{$value.id}}">
+                            <i class="input-helper"></i>
+                            {{$value['名称']}}
+                        </label>
+                    </td>
+                    <td>{{$value['类型']}}</td>
+                    <td>{{$value['大小']}}</td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-icon command-edit" data-row-id="10234">
+                            <span class="zmdi zmdi-edit"></span>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-danger btn-icon btn-del" data-id="{{$value.id}}"
+                                data-url="_data/error.json">
+                            <span class="zmdi zmdi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{#pagination}}
+    </div>
+</div>

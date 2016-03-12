@@ -1,0 +1,20 @@
+<div class="block-header">
+    <h2>
+        <ol class="breadcrumb">
+            {{each breadcrumbs}}
+            {{if $value.href}}
+            <li><a href="{{$value.href}}">{{$value.title}}</a></li>
+            {{else}}
+            <li class="active">{{$value.title}}</li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </h2>
+    <ul class="actions">
+        <li>
+            <a href="javascript:mycatui.page.reload()">
+                <i class="zmdi zmdi-refresh-alt"></i>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+{{each list}}
+<tr id="{{$value.id}}" pid="{{pid}}" hasChild="true">
+    <td>
+        <label class="checkbox checkbox-inline">
+            <input class="chk-line" type="checkbox" value="{{$value.id}}">
+            <i class="input-helper"></i>
+            {{$value['名称']}}
+        </label>
+    </td>
+    <td>{{$value['类型']}}</td>
+    <td>{{$value['大小']}}</td>
+</tr>
+{{/each}}

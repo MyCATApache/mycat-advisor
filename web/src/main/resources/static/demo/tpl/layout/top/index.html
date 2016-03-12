@@ -1,0 +1,68 @@
+<ul class="header-inner">
+    <!-- 菜单控制器 -->
+    <li id="menu-trigger" data-trigger="#sidebar">
+        <div class="line-wrap">
+            <div class="line top"></div>
+            <div class="line center"></div>
+            <div class="line bottom"></div>
+        </div>
+    </li>
+    <!-- LOGO -->
+    <li class="logo hidden-xs">
+        <a href="index.html">LOGO</a>
+    </li>
+
+    <li class="pull-right">
+        <ul class="top-menu">
+            <!-- 布局显示控制器 -->
+            <li id="toggle-width">
+                <div class="toggle-switch">
+                    <input id="tw-switch" type="checkbox" hidden="hidden"/>
+                    <label for="tw-switch" class="ts-helper"></label>
+                </div>
+            </li>
+            <!-- 搜索 -->
+            <li id="top-search">
+                <a class="tm-search" href=""></a>
+            </li>
+            <!-- 邮件 -->
+            <li id="top-email" class="dropdown">
+                {{include './email'}}
+            </li>
+            <!-- 通知栏 -->
+            <li id="top-notification" class="dropdown">
+                {{include './notification'}}
+            </li>
+            <!-- 任务 -->
+            <li id="top-task" class="dropdown hidden-xs">
+                {{include './task'}}
+            </li>
+            <!-- 功能区 -->
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="tm-settings" href="#"></a>
+                <ul class="dropdown-menu dm-icon pull-right">
+                    <li class="hidden-xs">
+                        <a data-action="fullscreen" href="#">
+                            <i class="zmdi zmdi-fullscreen"></i>
+                            {{lang.menu.fullscreen}}
+                        </a>
+                    </li>
+                    <li>
+                        <a data-action="clear-localstorage" href="#">
+                            <i class="zmdi zmdi-delete"></i>
+                            {{lang.menu.clearLocalstorage}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="chat-trigger" data-trigger="#chat">
+                <a class="tm-chat" href="#"></a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div id="top-search-wrap">
+    <input type="text">
+    <i id="top-search-close">&times;</i>
+</div>

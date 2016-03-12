@@ -1,0 +1,282 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Sales Statistics <small>Vestibulum purus quam scelerisque, mollis nonummy metus</small></h2>
+
+            <ul class="actions">
+                <li>
+                    <a href="">
+                        <i class="zmdi zmdi-refresh-alt"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="zmdi zmdi-download"></i>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="" data-toggle="dropdown">
+                        <i class="zmdi zmdi-more-vert"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="">Change Date Range</a>
+                        </li>
+                        <li>
+                            <a href="">Change Graph Type</a>
+                        </li>
+                        <li>
+                            <a href="">Other Settings</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <div class="chart-edge">
+                <div id="curved-line-chart" class="flot-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mini-charts">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="mini-charts-item bgm-cyan">
+                    <div class="clearfix">
+                        <div id="statsBar" class="chart"></div>
+                        <div class="count">
+                            <small>Website Traffics</small>
+                            <h2>987,459</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <div class="mini-charts-item bgm-lightgreen">
+                    <div class="clearfix">
+                        <div id="statsBar2" class="chart"></div>
+                        <div class="count">
+                            <small>Website Impressions</small>
+                            <h2>356,785K</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <div class="mini-charts-item bgm-orange">
+                    <div class="clearfix">
+                        <div id="statsLine" class="chart"></div>
+                        <div class="count">
+                            <small>Total Sales</small>
+                            <h2>$ 458,778</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <div class="mini-charts-item bgm-bluegray">
+                    <div class="clearfix">
+                        <div id="statsLine2" class="chart"></div>
+                        <div class="count">
+                            <small>Support Tickets</small>
+                            <h2>23,856</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dash-widgets">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div id="site-visits" class="dash-widget-item bgm-teal">
+                    <div class="dash-widget-header">
+                        <div class="p-20">
+                            <div id="dashWidgetVisits"></div>
+                        </div>
+
+                        <div class="dash-widget-title">For the past 30 days</div>
+
+                        <ul class="actions actions-alt">
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="">Refresh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Manage Widgets</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Widgets Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-20">
+
+                        <small>Page Views</small>
+                        <h3 class="m-0 f-400">47,896,536</h3>
+
+                        <br/>
+
+                        <small>Site Visitors</small>
+                        <h3 class="m-0 f-400">24,456,799</h3>
+
+                        <br/>
+
+                        <small>Total Clicks</small>
+                        <h3 class="m-0 f-400">13,965</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div id="pie-charts" class="dash-widget-item">
+                    <div class="bgm-pink">
+                        <div class="dash-widget-header">
+                            <div class="dash-widget-title">Email Statistics</div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="text-center p-20 m-t-25">
+                            <div class="easy-pie main-pie" data-percent="75">
+                                <div class="percent">45</div>
+                                <div class="pie-title">Total Emails Sent</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-t-20 p-b-20 text-center">
+                        <div class="easy-pie sub-pie-1" data-percent="56">
+                            <div class="percent">56</div>
+                            <div class="pie-title">Bounce Rate</div>
+                        </div>
+                        <div class="easy-pie sub-pie-2" data-percent="84">
+                            <div class="percent">84</div>
+                            <div class="pie-title">Total Opened</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="dash-widget-item bgm-lime">
+                    <div id="weather-widget"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div id="best-selling" class="dash-widget-item">
+                    <div class="dash-widget-header">
+                        <div class="dash-widget-title">Best Sellings</div>
+                        <img src="img/widgets/alpha.jpg" alt="">
+                        <div class="main-item">
+                            <small>Samsung Galaxy Alpha</small>
+                            <h2>$799.99</h2>
+                        </div>
+                    </div>
+
+                    <div class="listview p-t-5">
+                        <a class="lv-item" href="">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="lv-img-sm" src="img/widgets/note4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="lv-title">Samsung Galaxy Note 4</div>
+                                    <small class="lv-small">$850.00 - $1199.99</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="lv-item" href="">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="lv-img-sm" src="img/widgets/mate7.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="lv-title">Huawei Ascend Mate</div>
+                                    <small class="lv-small">$649.59 - $749.99</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="lv-item" href="">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="lv-img-sm" src="img/widgets/535.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="lv-title">Nokia Lumia 535</div>
+                                    <small class="lv-small">$189.99 - $250.00</small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="lv-footer" href="">
+                            View All
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="lib/chart/flot/jquery.flot.js"></script>
+<script src="lib/chart/flot/jquery.flot.resize.js"></script>
+<script src="lib/chart/flot.curvedlines/curvedLines.js"></script>
+<script src="lib/chart/sparklines/jquery.sparkline.js"></script>
+<script src="lib/chart/jquery.easy-pie-chart/jquery.easypiechart.js"></script>
+
+<script src="lib/chart/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+<script src="lib/chart/flot-charts/curved-line-chart.js"></script>
+<script>
+    mycatui.chart.sparklineBar('statsBar', {{#chart.statsBar}}, '45px', 3, '#fff', 2);
+    mycatui.chart.sparklineBar('statsBar2',{{#chart.statsBar}} , '45px', 3, '#fff', 2);
+    mycatui.chart.sparklineLine('statsLine',{{#chart.statsLine}} , 85, 45, '#fff', 'rgba(0,0,0,0)', 1.25, 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 3, '#fff', 'rgba(255,255,255,0.4)');
+    mycatui.chart.sparklineLine('statsLine2',{{#chart.statsLine2}} , 85, 45, '#fff', 'rgba(0,0,0,0)', 1.25, 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 3, '#fff', 'rgba(255,255,255,0.4)');
+    mycatui.chart.sparklineLine('dashWidgetVisits',{{#chart.statsLine2}} , '100%', '95px', 'rgba(255,255,255,0.7)', 'rgba(0,0,0,0)', 2, 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 5, 'rgba(255,255,255,0.4)', '#fff');
+
+    mycatui.chart.easyPieChart($('.main-pie'), 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0.5)', 'rgba(255,255,255,0.7)', 7, 'butt', 148);
+    mycatui.chart.easyPieChart($('.sub-pie-1'), '#eee', '#ccc', '#2196F3', 4, 'butt', 95);
+    mycatui.chart.easyPieChart($('.sub-pie-2'), '#eee', '#ccc', '#FFC107', 4, 'butt', 95);
+
+    $.simpleWeather({
+        location: 'Austin, TX',
+        woeid: '',
+        unit: 'f',
+        success: function (weather) {
+            html = '<div class="weather-status">' + weather.temp + '&deg;' + weather.units.temp + '</div>';
+            html += '<ul class="weather-info"><li>' + weather.city + ', ' + weather.region + '</li>';
+            html += '<li class="currently">' + weather.currently + '</li></ul>';
+            html += '<div class="weather-icon wi-' + weather.code + '"></div>';
+            html += '<div class="dash-widget-footer"><div class="weather-list tomorrow">';
+            html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[1].high + '/' + weather.forecast[1].low + '</span><span>' + weather.forecast[1].text + '</span>';
+            html += '</div>';
+            html += '<div class="weather-list after-tomorrow">';
+            html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[2].high + '/' + weather.forecast[2].low + '</span><span>' + weather.forecast[2].text + '</span>';
+            html += '</div></div>';
+            $("#weather-widget").html(html);
+        },
+        error: function (error) {
+            $("#weather-widget").html('<p>' + error + '</p>');
+        }
+    });
+</script>

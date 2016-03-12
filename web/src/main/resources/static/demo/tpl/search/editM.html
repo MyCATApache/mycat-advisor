@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<form class="form-horizontal form-validate" action="_data/success.json" role="form">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="no" class="col-sm-2 control-label">编号</label>
+
+            <div class="col-sm-10">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required]" id="no" name="no"
+                           placeholder="编号" value="{{no}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date" class="col-sm-2 control-label">生产日期</label>
+
+            <div class="col-sm-10">
+                <div class="dtp-container fg-line">
+                    <input type="text" class="form-control input-sm date-picker validate[required]" id="date"
+                           name="date"
+                           placeholder="生产日期" value="{{date}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="x" class="col-sm-2 control-label">坐标</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required]" id="x" name="x"
+                           placeholder="x轴" value="{{x}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required]" id="y" name="y"
+                           placeholder="y轴" value="{{y}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-save">{{lang.btn.save}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
+    </div>
+</form>

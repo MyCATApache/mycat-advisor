@@ -1,0 +1,9 @@
+{
+  "flag": true,
+  "msg": "",
+  "data": {
+    "title": "编辑公告",
+    "nTitle":"测试公告标题",
+    "nTxt":"<p>abc</p><p>你好！！</p><ul><li>B</li><li>C</li><li>D</li></ul>"
+  }
+}

@@ -1,0 +1,59 @@
+<div class="container">
+    {{include '../public/breadcrumbs'}}
+
+    <div class="card">
+        <div class="card-header">
+            <h2>带复选框表格
+                <small>包含斑马线和悬浮高亮</small>
+            </h2>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <label class="checkbox checkbox-inline">
+                            <input class="chk-all" type="checkbox">
+                            <i class="input-helper"></i>
+                        </label>
+                    </th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Nickname</th>
+                    <th>DateTime</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{each list}}
+                <tr>
+                    <td>
+                        <label class="checkbox checkbox-inline">
+                            <input class="chk-line" type="checkbox" name="chkTest" value="{{$index}}">
+                            <i class="input-helper"></i>
+                        </label>
+                    </td>
+                    <td>{{$value.firstName}}</td>
+                    <td>{{$value.lastName}}</td>
+                    <td>{{$value.userName}}</td>
+                    <td>{{$value.nickName}}</td>
+                    <td>{{$value.DateTime | dateFormat}}</td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-icon command-edit" data-row-id="10234">
+                            <span class="zmdi zmdi-edit"></span>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-danger btn-icon btn-del" data-id="{{$index}}"
+                                data-url="_data/error.json">
+                            <span class="zmdi zmdi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{#pagination}}
+    </div>
+</div>

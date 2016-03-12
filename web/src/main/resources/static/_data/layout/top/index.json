@@ -1,0 +1,18 @@
+{
+  "flag": true,
+  "data": {
+    "notification":{
+      "num":10,
+      "list":[{
+        "title":"告警标题",
+        "text":"告警详细"
+      },{
+        "title":"告警标题",
+        "text":"告警详细"
+      },{
+        "title":"告警标题",
+        "text":"告警详细"
+      }]
+    }
+  }
+}
