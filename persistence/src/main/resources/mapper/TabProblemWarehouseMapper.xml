@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabProblemWarehouseMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.TabProblemWarehouse" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="technology_type_id" property="technologyTypeId" jdbcType="BIGINT" />
+    <result column="problem_type_id" property="problemTypeId" jdbcType="BIGINT" />
+    <result column="problem_key" property="problemKey" jdbcType="VARCHAR" />
+    <result column="submit_user_id" property="submitUserId" jdbcType="BIGINT" />
+    <result column="process_man_id" property="processManId" jdbcType="BIGINT" />
+    <result column="process_step" property="processStep" jdbcType="INTEGER" />
+    <result column="step_update_time" property="stepUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="process_time" property="processTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="click_rate" property="clickRate" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del_flag" property="delFlag" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.apache.mycat.advisor.persistence.model.TabProblemWarehouseWithBLOBs" extends="BaseResultMap" >
+    <result column="problem_describe" property="problemDescribe" jdbcType="LONGVARCHAR" />
+    <result column="expect_describe" property="expectDescribe" jdbcType="LONGVARCHAR" />
+    <result column="process_describe" property="processDescribe" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, technology_type_id, problem_type_id, problem_key, submit_user_id, process_man_id, 
+    process_step, step_update_time, insert_time, process_time, status, click_rate, sort, 
+    del_flag
+  </sql>
+  <sql id="Blob_Column_List" >
+    problem_describe, expect_describe, process_describe
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tab_problem_warehouse
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tab_problem_warehouse
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemWarehouseWithBLOBs" >
+    insert into tab_problem_warehouse (id, technology_type_id, problem_type_id, 
+      problem_key, submit_user_id, process_man_id, 
+      process_step, step_update_time, insert_time, 
+      process_time, status, click_rate, 
+      sort, del_flag, problem_describe, 
+      expect_describe, process_describe
+      )
+    values (#{id,jdbcType=BIGINT}, #{technologyTypeId,jdbcType=BIGINT}, #{problemTypeId,jdbcType=BIGINT}, 
+      #{problemKey,jdbcType=VARCHAR}, #{submitUserId,jdbcType=BIGINT}, #{processManId,jdbcType=BIGINT}, 
+      #{processStep,jdbcType=INTEGER}, #{stepUpdateTime,jdbcType=TIMESTAMP}, #{insertTime,jdbcType=TIMESTAMP}, 
+      #{processTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{clickRate,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{delFlag,jdbcType=INTEGER}, #{problemDescribe,jdbcType=LONGVARCHAR}, 
+      #{expectDescribe,jdbcType=LONGVARCHAR}, #{processDescribe,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemWarehouseWithBLOBs" >
+    insert into tab_problem_warehouse
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="technologyTypeId != null" >
+        technology_type_id,
+      </if>
+      <if test="problemTypeId != null" >
+        problem_type_id,
+      </if>
+      <if test="problemKey != null" >
+        problem_key,
+      </if>
+      <if test="submitUserId != null" >
+        submit_user_id,
+      </if>
+      <if test="processManId != null" >
+        process_man_id,
+      </if>
+      <if test="processStep != null" >
+        process_step,
+      </if>
+      <if test="stepUpdateTime != null" >
+        step_update_time,
+      </if>
+      <if test="insertTime != null" >
+        insert_time,
+      </if>
+      <if test="processTime != null" >
+        process_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="clickRate != null" >
+        click_rate,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="problemDescribe != null" >
+        problem_describe,
+      </if>
+      <if test="expectDescribe != null" >
+        expect_describe,
+      </if>
+      <if test="processDescribe != null" >
+        process_describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="technologyTypeId != null" >
+        #{technologyTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="problemTypeId != null" >
+        #{problemTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="problemKey != null" >
+        #{problemKey,jdbcType=VARCHAR},
+      </if>
+      <if test="submitUserId != null" >
+        #{submitUserId,jdbcType=BIGINT},
+      </if>
+      <if test="processManId != null" >
+        #{processManId,jdbcType=BIGINT},
+      </if>
+      <if test="processStep != null" >
+        #{processStep,jdbcType=INTEGER},
+      </if>
+      <if test="stepUpdateTime != null" >
+        #{stepUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processTime != null" >
+        #{processTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="clickRate != null" >
+        #{clickRate,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="problemDescribe != null" >
+        #{problemDescribe,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expectDescribe != null" >
+        #{expectDescribe,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="processDescribe != null" >
+        #{processDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemWarehouseWithBLOBs" >
+    update tab_problem_warehouse
+    <set >
+      <if test="technologyTypeId != null" >
+        technology_type_id = #{technologyTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="problemTypeId != null" >
+        problem_type_id = #{problemTypeId,jdbcType=BIGINT},
+      </if>
+      <if test="problemKey != null" >
+        problem_key = #{problemKey,jdbcType=VARCHAR},
+      </if>
+      <if test="submitUserId != null" >
+        submit_user_id = #{submitUserId,jdbcType=BIGINT},
+      </if>
+      <if test="processManId != null" >
+        process_man_id = #{processManId,jdbcType=BIGINT},
+      </if>
+      <if test="processStep != null" >
+        process_step = #{processStep,jdbcType=INTEGER},
+      </if>
+      <if test="stepUpdateTime != null" >
+        step_update_time = #{stepUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null" >
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processTime != null" >
+        process_time = #{processTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="clickRate != null" >
+        click_rate = #{clickRate,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="problemDescribe != null" >
+        problem_describe = #{problemDescribe,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expectDescribe != null" >
+        expect_describe = #{expectDescribe,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="processDescribe != null" >
+        process_describe = #{processDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemWarehouseWithBLOBs" >
+    update tab_problem_warehouse
+    set technology_type_id = #{technologyTypeId,jdbcType=BIGINT},
+      problem_type_id = #{problemTypeId,jdbcType=BIGINT},
+      problem_key = #{problemKey,jdbcType=VARCHAR},
+      submit_user_id = #{submitUserId,jdbcType=BIGINT},
+      process_man_id = #{processManId,jdbcType=BIGINT},
+      process_step = #{processStep,jdbcType=INTEGER},
+      step_update_time = #{stepUpdateTime,jdbcType=TIMESTAMP},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      process_time = #{processTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      click_rate = #{clickRate,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      problem_describe = #{problemDescribe,jdbcType=LONGVARCHAR},
+      expect_describe = #{expectDescribe,jdbcType=LONGVARCHAR},
+      process_describe = #{processDescribe,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemWarehouse" >
+    update tab_problem_warehouse
+    set technology_type_id = #{technologyTypeId,jdbcType=BIGINT},
+      problem_type_id = #{problemTypeId,jdbcType=BIGINT},
+      problem_key = #{problemKey,jdbcType=VARCHAR},
+      submit_user_id = #{submitUserId,jdbcType=BIGINT},
+      process_man_id = #{processManId,jdbcType=BIGINT},
+      process_step = #{processStep,jdbcType=INTEGER},
+      step_update_time = #{stepUpdateTime,jdbcType=TIMESTAMP},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      process_time = #{processTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      click_rate = #{clickRate,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

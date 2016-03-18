@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.ExaminePersonMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.ExaminePerson" >
+    <id column="templateid" property="templateid" jdbcType="INTEGER" />
+    <id column="step" property="step" jdbcType="TINYINT" />
+    <id column="operatorid" property="operatorid" jdbcType="BIGINT" />
+    <result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    templateid, step, operatorid, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePersonKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from examine_person
+    where templateid = #{templateid,jdbcType=INTEGER}
+      and step = #{step,jdbcType=TINYINT}
+      and operatorid = #{operatorid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePersonKey" >
+    delete from examine_person
+    where templateid = #{templateid,jdbcType=INTEGER}
+      and step = #{step,jdbcType=TINYINT}
+      and operatorid = #{operatorid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePerson" >
+    insert into examine_person (templateid, step, operatorid, 
+      lastupdatetime)
+    values (#{templateid,jdbcType=INTEGER}, #{step,jdbcType=TINYINT}, #{operatorid,jdbcType=BIGINT}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePerson" >
+    insert into examine_person
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        templateid,
+      </if>
+      <if test="step != null" >
+        step,
+      </if>
+      <if test="operatorid != null" >
+        operatorid,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        #{templateid,jdbcType=INTEGER},
+      </if>
+      <if test="step != null" >
+        #{step,jdbcType=TINYINT},
+      </if>
+      <if test="operatorid != null" >
+        #{operatorid,jdbcType=BIGINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePerson" >
+    update examine_person
+    <set >
+      <if test="lastupdatetime != null" >
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where templateid = #{templateid,jdbcType=INTEGER}
+      and step = #{step,jdbcType=TINYINT}
+      and operatorid = #{operatorid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.ExaminePerson" >
+    update examine_person
+    set lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where templateid = #{templateid,jdbcType=INTEGER}
+      and step = #{step,jdbcType=TINYINT}
+      and operatorid = #{operatorid,jdbcType=BIGINT}
+  </update>
+</mapper>

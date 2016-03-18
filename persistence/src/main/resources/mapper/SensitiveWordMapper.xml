@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.SensitiveWordMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.SensitiveWord" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="sensitiveword" property="sensitiveword" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, group_name, sensitiveword, enable
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sensitiveword
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sensitiveword
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.SensitiveWord" >
+    insert into sensitiveword (id, group_name, sensitiveword, 
+      enable)
+    values (#{id,jdbcType=BIGINT}, #{groupName,jdbcType=VARCHAR}, #{sensitiveword,jdbcType=VARCHAR}, 
+      #{enable,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.SensitiveWord" >
+    insert into sensitiveword
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="sensitiveword != null" >
+        sensitiveword,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="sensitiveword != null" >
+        #{sensitiveword,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.SensitiveWord" >
+    update sensitiveword
+    <set >
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="sensitiveword != null" >
+        sensitiveword = #{sensitiveword,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.SensitiveWord" >
+    update sensitiveword
+    set group_name = #{groupName,jdbcType=VARCHAR},
+      sensitiveword = #{sensitiveword,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

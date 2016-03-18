@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.ExamineStepMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.ExamineStep" >
+    <id column="examineid" property="examineid" jdbcType="BIGINT" />
+    <result column="templateid" property="templateid" jdbcType="INTEGER" />
+    <result column="curstep" property="curstep" jdbcType="TINYINT" />
+    <result column="ownerid" property="ownerid" jdbcType="BIGINT" />
+    <result column="questionid" property="questionid" jdbcType="BIGINT" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="priority" property="priority" jdbcType="TINYINT" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    examineid, templateid, curstep, ownerid, questionid, describe, status, priority, 
+    starttime, endtime, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from examine_step
+    where examineid = #{examineid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from examine_step
+    where examineid = #{examineid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.ExamineStep" >
+    insert into examine_step (examineid, templateid, curstep, 
+      ownerid, questionid, describe, 
+      status, priority, starttime, 
+      endtime, lastupdatetime)
+    values (#{examineid,jdbcType=BIGINT}, #{templateid,jdbcType=INTEGER}, #{curstep,jdbcType=TINYINT}, 
+      #{ownerid,jdbcType=BIGINT}, #{questionid,jdbcType=BIGINT}, #{describe,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{priority,jdbcType=TINYINT}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.ExamineStep" >
+    insert into examine_step
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="examineid != null" >
+        examineid,
+      </if>
+      <if test="templateid != null" >
+        templateid,
+      </if>
+      <if test="curstep != null" >
+        curstep,
+      </if>
+      <if test="ownerid != null" >
+        ownerid,
+      </if>
+      <if test="questionid != null" >
+        questionid,
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="examineid != null" >
+        #{examineid,jdbcType=BIGINT},
+      </if>
+      <if test="templateid != null" >
+        #{templateid,jdbcType=INTEGER},
+      </if>
+      <if test="curstep != null" >
+        #{curstep,jdbcType=TINYINT},
+      </if>
+      <if test="ownerid != null" >
+        #{ownerid,jdbcType=BIGINT},
+      </if>
+      <if test="questionid != null" >
+        #{questionid,jdbcType=BIGINT},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.ExamineStep" >
+    update examine_step
+    <set >
+      <if test="templateid != null" >
+        templateid = #{templateid,jdbcType=INTEGER},
+      </if>
+      <if test="curstep != null" >
+        curstep = #{curstep,jdbcType=TINYINT},
+      </if>
+      <if test="ownerid != null" >
+        ownerid = #{ownerid,jdbcType=BIGINT},
+      </if>
+      <if test="questionid != null" >
+        questionid = #{questionid,jdbcType=BIGINT},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where examineid = #{examineid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.ExamineStep" >
+    update examine_step
+    set templateid = #{templateid,jdbcType=INTEGER},
+      curstep = #{curstep,jdbcType=TINYINT},
+      ownerid = #{ownerid,jdbcType=BIGINT},
+      questionid = #{questionid,jdbcType=BIGINT},
+      describe = #{describe,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      priority = #{priority,jdbcType=TINYINT},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where examineid = #{examineid,jdbcType=BIGINT}
+  </update>
+</mapper>

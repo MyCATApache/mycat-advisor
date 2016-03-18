@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.AuthMethodMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.AuthMethod" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="logintype" property="logintype" jdbcType="CHAR" />
+    <result column="loginname" property="loginname" jdbcType="VARCHAR" />
+    <result column="encrypttype" property="encrypttype" jdbcType="CHAR" />
+    <result column="enable" property="enable" jdbcType="TINYINT" />
+    <result column="lastupdatedate" property="lastupdatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, logintype, loginname, encrypttype, enable, lastupdatedate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from authmethod
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from authmethod
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.AuthMethod" >
+    insert into authmethod (id, user_id, logintype, 
+      loginname, encrypttype, enable, 
+      lastupdatedate)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{logintype,jdbcType=CHAR}, 
+      #{loginname,jdbcType=VARCHAR}, #{encrypttype,jdbcType=CHAR}, #{enable,jdbcType=TINYINT}, 
+      #{lastupdatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.AuthMethod" >
+    insert into authmethod
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="logintype != null" >
+        logintype,
+      </if>
+      <if test="loginname != null" >
+        loginname,
+      </if>
+      <if test="encrypttype != null" >
+        encrypttype,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="lastupdatedate != null" >
+        lastupdatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="logintype != null" >
+        #{logintype,jdbcType=CHAR},
+      </if>
+      <if test="loginname != null" >
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="encrypttype != null" >
+        #{encrypttype,jdbcType=CHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatedate != null" >
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.AuthMethod" >
+    update authmethod
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="logintype != null" >
+        logintype = #{logintype,jdbcType=CHAR},
+      </if>
+      <if test="loginname != null" >
+        loginname = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="encrypttype != null" >
+        encrypttype = #{encrypttype,jdbcType=CHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatedate != null" >
+        lastupdatedate = #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.AuthMethod" >
+    update authmethod
+    set user_id = #{userId,jdbcType=BIGINT},
+      logintype = #{logintype,jdbcType=CHAR},
+      loginname = #{loginname,jdbcType=VARCHAR},
+      encrypttype = #{encrypttype,jdbcType=CHAR},
+      enable = #{enable,jdbcType=TINYINT},
+      lastupdatedate = #{lastupdatedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

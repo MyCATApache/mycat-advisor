@@ -1,5 +1,5 @@
 # 测试说明
-在persistence项目的测试资源目录下有测试sql文件，测试时注意修改**application.yml**对应的数据库连接选项，建立表成功并对相应数据库连接配置做修改后，运行web项目下：
+在persistence项目的测试资源目录下有测试sql文件，测试时注意修改web项目src/main/resources/**application.yml**对应的数据库连接选项，建表成功并对相应数据库连接配置做修改后，运行web项目下：
 > ServerStart
 
 然后可以使用
@@ -30,7 +30,7 @@ advisor:
 --------+reactapp 模块
 ```
 ## root模块
-作为整个项目的父模块，主要用于依赖版本管理，私服仓库设置，发布设置等一些默认设置设置。
+作为整个项目的父模块，主要用于依赖版本管理，私服仓库设置，发布设置等一些默认设置。
 > 此项目打包方式为pom，在子项目中引入新依赖时注意查看是否已有版本约束
 
 ## common模块
@@ -38,12 +38,12 @@ advisor:
 > 注意此项目中所有的方法需要做到无状态，并且如果整个类中方法为静态方法，那么需要提供私有构造函数防止实例化。工具类按包名存放，需添加时先查看是否已有或是否需要重构
 
 ## persistence模块
-此模块主要存放ORM层的内容，包括DAO接口，映射Model以及产生的配置文件
+此模块主要存放ORM层的内容，包括DAO接口，映射Model以及产生的配置文件。
 > dao，model和映射配置文件按业务模块划分，同一业务模块的存放在一个包/目录中
 
 ## service模块
 此模块存放业务逻辑处理类，业务逻辑简单时分一个层，当需要调用多个业务完成一个业务的情况增多时，分2层。
-> 注意同级业务处理类互调的情况，尽量不用使用，避免高耦合出现。此模块依赖persistence模块
+> 注意同级业务处理类互调的情况，尽量不要使用，避免高耦合出现。此模块依赖persistence模块
 
 ## schedule模块
 此模块为任务调度模块，所有调度任务在此模块编码。
@@ -66,4 +66,7 @@ web模块为前端controller父模块，有2个子模块：mobile和desktop。
 ios项目模块。
 
 ## reactapp模块
-react-native实现的跨终端app
+react-native实现的跨终端app。
+
+## docker 模块
+更多看 https://github.com/MyCATApache/mycat-advisor/blob/master/docker/README.md

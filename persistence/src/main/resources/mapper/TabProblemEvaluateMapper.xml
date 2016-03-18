@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabProblemEvaluateMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.TabProblemEvaluate" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="problem_id" property="problemId" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="result_score" property="resultScore" jdbcType="INTEGER" />
+    <result column="response_score" property="responseScore" jdbcType="INTEGER" />
+    <result column="serve_score" property="serveScore" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="eval_user_id" property="evalUserId" jdbcType="BIGINT" />
+    <result column="process_user_id" property="processUserId" jdbcType="BIGINT" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, problem_id, content, result_score, response_score, serve_score, status, eval_user_id, 
+    process_user_id, order_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_problem_evaluate
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tab_problem_evaluate
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemEvaluate" >
+    insert into tab_problem_evaluate (id, problem_id, content, 
+      result_score, response_score, serve_score, 
+      status, eval_user_id, process_user_id, 
+      order_id)
+    values (#{id,jdbcType=BIGINT}, #{problemId,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, 
+      #{resultScore,jdbcType=INTEGER}, #{responseScore,jdbcType=INTEGER}, #{serveScore,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{evalUserId,jdbcType=BIGINT}, #{processUserId,jdbcType=BIGINT}, 
+      #{orderId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemEvaluate" >
+    insert into tab_problem_evaluate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="problemId != null" >
+        problem_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="resultScore != null" >
+        result_score,
+      </if>
+      <if test="responseScore != null" >
+        response_score,
+      </if>
+      <if test="serveScore != null" >
+        serve_score,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="evalUserId != null" >
+        eval_user_id,
+      </if>
+      <if test="processUserId != null" >
+        process_user_id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="problemId != null" >
+        #{problemId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="resultScore != null" >
+        #{resultScore,jdbcType=INTEGER},
+      </if>
+      <if test="responseScore != null" >
+        #{responseScore,jdbcType=INTEGER},
+      </if>
+      <if test="serveScore != null" >
+        #{serveScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="evalUserId != null" >
+        #{evalUserId,jdbcType=BIGINT},
+      </if>
+      <if test="processUserId != null" >
+        #{processUserId,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemEvaluate" >
+    update tab_problem_evaluate
+    <set >
+      <if test="problemId != null" >
+        problem_id = #{problemId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="resultScore != null" >
+        result_score = #{resultScore,jdbcType=INTEGER},
+      </if>
+      <if test="responseScore != null" >
+        response_score = #{responseScore,jdbcType=INTEGER},
+      </if>
+      <if test="serveScore != null" >
+        serve_score = #{serveScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="evalUserId != null" >
+        eval_user_id = #{evalUserId,jdbcType=BIGINT},
+      </if>
+      <if test="processUserId != null" >
+        process_user_id = #{processUserId,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.TabProblemEvaluate" >
+    update tab_problem_evaluate
+    set problem_id = #{problemId,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      result_score = #{resultScore,jdbcType=INTEGER},
+      response_score = #{responseScore,jdbcType=INTEGER},
+      serve_score = #{serveScore,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      eval_user_id = #{evalUserId,jdbcType=BIGINT},
+      process_user_id = #{processUserId,jdbcType=BIGINT},
+      order_id = #{orderId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

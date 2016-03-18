@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.TabVipBuyInfoMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.TabVipBuyInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="buy_time" property="buyTime" jdbcType="TIMESTAMP" />
+    <result column="month_size" property="monthSize" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="REAL" />
+    <result column="deal_number" property="dealNumber" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="vip_id" property="vipId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, buy_time, month_size, money, deal_number, status, vip_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tab_vip_buyinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tab_vip_buyinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.TabVipBuyInfo" >
+    insert into tab_vip_buyinfo (id, user_id, buy_time, 
+      month_size, money, deal_number, 
+      status, vip_id)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{buyTime,jdbcType=TIMESTAMP}, 
+      #{monthSize,jdbcType=INTEGER}, #{money,jdbcType=REAL}, #{dealNumber,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{vipId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.TabVipBuyInfo" >
+    insert into tab_vip_buyinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="buyTime != null" >
+        buy_time,
+      </if>
+      <if test="monthSize != null" >
+        month_size,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="dealNumber != null" >
+        deal_number,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="vipId != null" >
+        vip_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="buyTime != null" >
+        #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monthSize != null" >
+        #{monthSize,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="dealNumber != null" >
+        #{dealNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="vipId != null" >
+        #{vipId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.TabVipBuyInfo" >
+    update tab_vip_buyinfo
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="buyTime != null" >
+        buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="monthSize != null" >
+        month_size = #{monthSize,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="dealNumber != null" >
+        deal_number = #{dealNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="vipId != null" >
+        vip_id = #{vipId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.TabVipBuyInfo" >
+    update tab_vip_buyinfo
+    set user_id = #{userId,jdbcType=BIGINT},
+      buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      month_size = #{monthSize,jdbcType=INTEGER},
+      money = #{money,jdbcType=REAL},
+      deal_number = #{dealNumber,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      vip_id = #{vipId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

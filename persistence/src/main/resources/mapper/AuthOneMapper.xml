@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.AuthOneMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.AuthOne" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="loginstatus" property="loginstatus" jdbcType="TINYINT" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="failcount" property="failcount" jdbcType="TINYINT" />
+    <result column="onlinestatus" property="onlinestatus" jdbcType="CHAR" />
+    <result column="lastupdatedate" property="lastupdatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, loginstatus, password, failcount, onlinestatus, lastupdatedate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from authone
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from authone
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.AuthOne" >
+    insert into authone (id, loginstatus, password, 
+      failcount, onlinestatus, lastupdatedate
+      )
+    values (#{id,jdbcType=BIGINT}, #{loginstatus,jdbcType=TINYINT}, #{password,jdbcType=VARCHAR}, 
+      #{failcount,jdbcType=TINYINT}, #{onlinestatus,jdbcType=CHAR}, #{lastupdatedate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.AuthOne" >
+    insert into authone
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="loginstatus != null" >
+        loginstatus,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="failcount != null" >
+        failcount,
+      </if>
+      <if test="onlinestatus != null" >
+        onlinestatus,
+      </if>
+      <if test="lastupdatedate != null" >
+        lastupdatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="loginstatus != null" >
+        #{loginstatus,jdbcType=TINYINT},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="failcount != null" >
+        #{failcount,jdbcType=TINYINT},
+      </if>
+      <if test="onlinestatus != null" >
+        #{onlinestatus,jdbcType=CHAR},
+      </if>
+      <if test="lastupdatedate != null" >
+        #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.AuthOne" >
+    update authone
+    <set >
+      <if test="loginstatus != null" >
+        loginstatus = #{loginstatus,jdbcType=TINYINT},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="failcount != null" >
+        failcount = #{failcount,jdbcType=TINYINT},
+      </if>
+      <if test="onlinestatus != null" >
+        onlinestatus = #{onlinestatus,jdbcType=CHAR},
+      </if>
+      <if test="lastupdatedate != null" >
+        lastupdatedate = #{lastupdatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.AuthOne" >
+    update authone
+    set loginstatus = #{loginstatus,jdbcType=TINYINT},
+      password = #{password,jdbcType=VARCHAR},
+      failcount = #{failcount,jdbcType=TINYINT},
+      onlinestatus = #{onlinestatus,jdbcType=CHAR},
+      lastupdatedate = #{lastupdatedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
