@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.Pay_ChannelMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.Pay_Channel" >
+    <id column="channelno" property="channelno" jdbcType="VARCHAR" />
+    <id column="payaccount" property="payaccount" jdbcType="VARCHAR" />
+    <result column="channelname" property="channelname" jdbcType="VARCHAR" />
+    <result column="channelcode" property="channelcode" jdbcType="VARCHAR" />
+    <result column="channeltype" property="channeltype" jdbcType="CHAR" />
+    <result column="tradingmethod" property="tradingmethod" jdbcType="VARCHAR" />
+    <result column="paybank" property="paybank" jdbcType="VARCHAR" />
+    <result column="branchbank" property="branchbank" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    channelno, payaccount, channelname, channelcode, channeltype, tradingmethod, paybank, 
+    branchbank, status, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="org.apache.mycat.advisor.persistence.model.Pay_ChannelKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from pay_channel
+    where channelno = #{channelno,jdbcType=VARCHAR}
+      and payaccount = #{payaccount,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.Pay_ChannelKey" >
+    delete from pay_channel
+    where channelno = #{channelno,jdbcType=VARCHAR}
+      and payaccount = #{payaccount,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.Pay_Channel" >
+    insert into pay_channel (channelno, payaccount, channelname, 
+      channelcode, channeltype, tradingmethod, 
+      paybank, branchbank, status, 
+      lastupdatetime)
+    values (#{channelno,jdbcType=VARCHAR}, #{payaccount,jdbcType=VARCHAR}, #{channelname,jdbcType=VARCHAR}, 
+      #{channelcode,jdbcType=VARCHAR}, #{channeltype,jdbcType=CHAR}, #{tradingmethod,jdbcType=VARCHAR}, 
+      #{paybank,jdbcType=VARCHAR}, #{branchbank,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.Pay_Channel" >
+    insert into pay_channel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="channelno != null" >
+        channelno,
+      </if>
+      <if test="payaccount != null" >
+        payaccount,
+      </if>
+      <if test="channelname != null" >
+        channelname,
+      </if>
+      <if test="channelcode != null" >
+        channelcode,
+      </if>
+      <if test="channeltype != null" >
+        channeltype,
+      </if>
+      <if test="tradingmethod != null" >
+        tradingmethod,
+      </if>
+      <if test="paybank != null" >
+        paybank,
+      </if>
+      <if test="branchbank != null" >
+        branchbank,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="channelno != null" >
+        #{channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="payaccount != null" >
+        #{payaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="channelname != null" >
+        #{channelname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelcode != null" >
+        #{channelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="channeltype != null" >
+        #{channeltype,jdbcType=CHAR},
+      </if>
+      <if test="tradingmethod != null" >
+        #{tradingmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="paybank != null" >
+        #{paybank,jdbcType=VARCHAR},
+      </if>
+      <if test="branchbank != null" >
+        #{branchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.Pay_Channel" >
+    update pay_channel
+    <set >
+      <if test="channelname != null" >
+        channelname = #{channelname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelcode != null" >
+        channelcode = #{channelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="channeltype != null" >
+        channeltype = #{channeltype,jdbcType=CHAR},
+      </if>
+      <if test="tradingmethod != null" >
+        tradingmethod = #{tradingmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="paybank != null" >
+        paybank = #{paybank,jdbcType=VARCHAR},
+      </if>
+      <if test="branchbank != null" >
+        branchbank = #{branchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where channelno = #{channelno,jdbcType=VARCHAR}
+      and payaccount = #{payaccount,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.Pay_Channel" >
+    update pay_channel
+    set channelname = #{channelname,jdbcType=VARCHAR},
+      channelcode = #{channelcode,jdbcType=VARCHAR},
+      channeltype = #{channeltype,jdbcType=CHAR},
+      tradingmethod = #{tradingmethod,jdbcType=VARCHAR},
+      paybank = #{paybank,jdbcType=VARCHAR},
+      branchbank = #{branchbank,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where channelno = #{channelno,jdbcType=VARCHAR}
+      and payaccount = #{payaccount,jdbcType=VARCHAR}
+  </update>
+</mapper>

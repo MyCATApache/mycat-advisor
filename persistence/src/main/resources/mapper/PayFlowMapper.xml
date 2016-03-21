@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.PayFlowMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.PayFlow" >
+    <id column="serialno" property="serialno" jdbcType="BIGINT" />
+    <result column="userid" property="userid" jdbcType="BIGINT" />
+    <result column="channelno" property="channelno" jdbcType="VARCHAR" />
+    <result column="branchbank" property="branchbank" jdbcType="VARCHAR" />
+    <result column="payaccount" property="payaccount" jdbcType="VARCHAR" />
+    <result column="paybank" property="paybank" jdbcType="VARCHAR" />
+    <result column="businesscode" property="businesscode" jdbcType="CHAR" />
+    <result column="transactiondate" property="transactiondate" jdbcType="DATE" />
+    <result column="transactiontime" property="transactiontime" jdbcType="TIME" />
+    <result column="targetuserid" property="targetuserid" jdbcType="BIGINT" />
+    <result column="targetchannelno" property="targetchannelno" jdbcType="VARCHAR" />
+    <result column="targetpayaccount" property="targetpayaccount" jdbcType="VARCHAR" />
+    <result column="targetpaybank" property="targetpaybank" jdbcType="VARCHAR" />
+    <result column="targetbranchbank" property="targetbranchbank" jdbcType="VARCHAR" />
+    <result column="currencytype" property="currencytype" jdbcType="VARCHAR" />
+    <result column="appamount" property="appamount" jdbcType="DECIMAL" />
+    <result column="specification" property="specification" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    serialno, userid, channelno, branchbank, payaccount, paybank, businesscode, transactiondate, 
+    transactiontime, targetuserid, targetchannelno, targetpayaccount, targetpaybank, 
+    targetbranchbank, currencytype, appamount, specification
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pay_flow
+    where serialno = #{serialno,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pay_flow
+    where serialno = #{serialno,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.PayFlow" >
+    insert into pay_flow (serialno, userid, channelno, 
+      branchbank, payaccount, paybank, 
+      businesscode, transactiondate, transactiontime, 
+      targetuserid, targetchannelno, targetpayaccount, 
+      targetpaybank, targetbranchbank, currencytype, 
+      appamount, specification)
+    values (#{serialno,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{channelno,jdbcType=VARCHAR}, 
+      #{branchbank,jdbcType=VARCHAR}, #{payaccount,jdbcType=VARCHAR}, #{paybank,jdbcType=VARCHAR}, 
+      #{businesscode,jdbcType=CHAR}, #{transactiondate,jdbcType=DATE}, #{transactiontime,jdbcType=TIME}, 
+      #{targetuserid,jdbcType=BIGINT}, #{targetchannelno,jdbcType=VARCHAR}, #{targetpayaccount,jdbcType=VARCHAR}, 
+      #{targetpaybank,jdbcType=VARCHAR}, #{targetbranchbank,jdbcType=VARCHAR}, #{currencytype,jdbcType=VARCHAR}, 
+      #{appamount,jdbcType=DECIMAL}, #{specification,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.PayFlow" >
+    insert into pay_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serialno != null" >
+        serialno,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="channelno != null" >
+        channelno,
+      </if>
+      <if test="branchbank != null" >
+        branchbank,
+      </if>
+      <if test="payaccount != null" >
+        payaccount,
+      </if>
+      <if test="paybank != null" >
+        paybank,
+      </if>
+      <if test="businesscode != null" >
+        businesscode,
+      </if>
+      <if test="transactiondate != null" >
+        transactiondate,
+      </if>
+      <if test="transactiontime != null" >
+        transactiontime,
+      </if>
+      <if test="targetuserid != null" >
+        targetuserid,
+      </if>
+      <if test="targetchannelno != null" >
+        targetchannelno,
+      </if>
+      <if test="targetpayaccount != null" >
+        targetpayaccount,
+      </if>
+      <if test="targetpaybank != null" >
+        targetpaybank,
+      </if>
+      <if test="targetbranchbank != null" >
+        targetbranchbank,
+      </if>
+      <if test="currencytype != null" >
+        currencytype,
+      </if>
+      <if test="appamount != null" >
+        appamount,
+      </if>
+      <if test="specification != null" >
+        specification,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serialno != null" >
+        #{serialno,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="channelno != null" >
+        #{channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="branchbank != null" >
+        #{branchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="payaccount != null" >
+        #{payaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paybank != null" >
+        #{paybank,jdbcType=VARCHAR},
+      </if>
+      <if test="businesscode != null" >
+        #{businesscode,jdbcType=CHAR},
+      </if>
+      <if test="transactiondate != null" >
+        #{transactiondate,jdbcType=DATE},
+      </if>
+      <if test="transactiontime != null" >
+        #{transactiontime,jdbcType=TIME},
+      </if>
+      <if test="targetuserid != null" >
+        #{targetuserid,jdbcType=BIGINT},
+      </if>
+      <if test="targetchannelno != null" >
+        #{targetchannelno,jdbcType=VARCHAR},
+      </if>
+      <if test="targetpayaccount != null" >
+        #{targetpayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="targetpaybank != null" >
+        #{targetpaybank,jdbcType=VARCHAR},
+      </if>
+      <if test="targetbranchbank != null" >
+        #{targetbranchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="currencytype != null" >
+        #{currencytype,jdbcType=VARCHAR},
+      </if>
+      <if test="appamount != null" >
+        #{appamount,jdbcType=DECIMAL},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.PayFlow" >
+    update pay_flow
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="channelno != null" >
+        channelno = #{channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="branchbank != null" >
+        branchbank = #{branchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="payaccount != null" >
+        payaccount = #{payaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="paybank != null" >
+        paybank = #{paybank,jdbcType=VARCHAR},
+      </if>
+      <if test="businesscode != null" >
+        businesscode = #{businesscode,jdbcType=CHAR},
+      </if>
+      <if test="transactiondate != null" >
+        transactiondate = #{transactiondate,jdbcType=DATE},
+      </if>
+      <if test="transactiontime != null" >
+        transactiontime = #{transactiontime,jdbcType=TIME},
+      </if>
+      <if test="targetuserid != null" >
+        targetuserid = #{targetuserid,jdbcType=BIGINT},
+      </if>
+      <if test="targetchannelno != null" >
+        targetchannelno = #{targetchannelno,jdbcType=VARCHAR},
+      </if>
+      <if test="targetpayaccount != null" >
+        targetpayaccount = #{targetpayaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="targetpaybank != null" >
+        targetpaybank = #{targetpaybank,jdbcType=VARCHAR},
+      </if>
+      <if test="targetbranchbank != null" >
+        targetbranchbank = #{targetbranchbank,jdbcType=VARCHAR},
+      </if>
+      <if test="currencytype != null" >
+        currencytype = #{currencytype,jdbcType=VARCHAR},
+      </if>
+      <if test="appamount != null" >
+        appamount = #{appamount,jdbcType=DECIMAL},
+      </if>
+      <if test="specification != null" >
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where serialno = #{serialno,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.PayFlow" >
+    update pay_flow
+    set userid = #{userid,jdbcType=BIGINT},
+      channelno = #{channelno,jdbcType=VARCHAR},
+      branchbank = #{branchbank,jdbcType=VARCHAR},
+      payaccount = #{payaccount,jdbcType=VARCHAR},
+      paybank = #{paybank,jdbcType=VARCHAR},
+      businesscode = #{businesscode,jdbcType=CHAR},
+      transactiondate = #{transactiondate,jdbcType=DATE},
+      transactiontime = #{transactiontime,jdbcType=TIME},
+      targetuserid = #{targetuserid,jdbcType=BIGINT},
+      targetchannelno = #{targetchannelno,jdbcType=VARCHAR},
+      targetpayaccount = #{targetpayaccount,jdbcType=VARCHAR},
+      targetpaybank = #{targetpaybank,jdbcType=VARCHAR},
+      targetbranchbank = #{targetbranchbank,jdbcType=VARCHAR},
+      currencytype = #{currencytype,jdbcType=VARCHAR},
+      appamount = #{appamount,jdbcType=DECIMAL},
+      specification = #{specification,jdbcType=VARCHAR}
+    where serialno = #{serialno,jdbcType=BIGINT}
+  </update>
+</mapper>

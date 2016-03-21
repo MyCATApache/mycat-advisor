@@ -1,18 +1,15 @@
+# 端口，暂无作用
 server:
-    port: 8080
-    context-path: #/advisor/
-
-logging:
-    level:
-        tk.mybatis: DEBUG
-
+      port:8080
+      #context-path: #/advisor/
+# spring 配置
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/mycat_advisor
-        username: cjl
-        password: 337310
-        # 使用druid数据源
+        url: jdbc:mysql://127.0.0.1:3306/test
+        username: root
+        password: root
+        # druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
         filters: stat
@@ -35,3 +32,6 @@ spring:
     freemarker:
         cache: false
         request-context-attribute: request
+    #security.basic.enabled: false
+    #security.user.password: password
+

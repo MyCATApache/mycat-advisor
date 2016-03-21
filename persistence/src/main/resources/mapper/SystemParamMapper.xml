@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.SystemParamMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.SystemParam" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="c_key" property="cKey" jdbcType="VARCHAR" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+    <result column="default_value" property="defaultValue" jdbcType="VARCHAR" />
+    <result column="c_value" property="cValue" jdbcType="VARCHAR" />
+    <result column="valid_type" property="validType" jdbcType="VARCHAR" />
+    <result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, c_key, c_name, default_value, c_value, valid_type, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from system_param
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from system_param
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.SystemParam" >
+    insert into system_param (id, c_key, c_name, 
+      default_value, c_value, valid_type, 
+      lastupdatetime)
+    values (#{id,jdbcType=BIGINT}, #{cKey,jdbcType=VARCHAR}, #{cName,jdbcType=VARCHAR}, 
+      #{defaultValue,jdbcType=VARCHAR}, #{cValue,jdbcType=VARCHAR}, #{validType,jdbcType=VARCHAR}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.SystemParam" >
+    insert into system_param
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cKey != null" >
+        c_key,
+      </if>
+      <if test="cName != null" >
+        c_name,
+      </if>
+      <if test="defaultValue != null" >
+        default_value,
+      </if>
+      <if test="cValue != null" >
+        c_value,
+      </if>
+      <if test="validType != null" >
+        valid_type,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cKey != null" >
+        #{cKey,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultValue != null" >
+        #{defaultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null" >
+        #{cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="validType != null" >
+        #{validType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.SystemParam" >
+    update system_param
+    <set >
+      <if test="cKey != null" >
+        c_key = #{cKey,jdbcType=VARCHAR},
+      </if>
+      <if test="cName != null" >
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultValue != null" >
+        default_value = #{defaultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null" >
+        c_value = #{cValue,jdbcType=VARCHAR},
+      </if>
+      <if test="validType != null" >
+        valid_type = #{validType,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.SystemParam" >
+    update system_param
+    set c_key = #{cKey,jdbcType=VARCHAR},
+      c_name = #{cName,jdbcType=VARCHAR},
+      default_value = #{defaultValue,jdbcType=VARCHAR},
+      c_value = #{cValue,jdbcType=VARCHAR},
+      valid_type = #{validType,jdbcType=VARCHAR},
+      lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

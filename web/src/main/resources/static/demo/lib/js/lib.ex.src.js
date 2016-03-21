@@ -4868,7 +4868,7 @@ d=new R(c,f(this)),f(this).data("__nicescroll",d));h.push(d)});return 1==h.lengt
     },
 
     mobile: function () {
-      this.$element.addClass('mobile-device').appendTo(this.$newElement);
+      this.$element.addClass('web-device').appendTo(this.$newElement);
       if (this.options.container) this.$menu.hide();
     },
 
@@ -9698,7 +9698,7 @@ l)&&void 0!==e[l]&&null!==e[l]&&g.val.push([l,String(e[l])]);g.val.length&&(g.ty
             // Bind global datepicker mousedown for hiding and
             $(document)
               .on('mousedown.daterangepicker', this._outsideClickProxy)
-              // also support mobile devices
+              // also support web devices
               .on('touchend.daterangepicker', this._outsideClickProxy)
               // also explicitly play nice with Bootstrap dropdowns, which stopPropagation when clicking them
               .on('click.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy)

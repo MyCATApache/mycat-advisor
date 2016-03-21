@@ -53,6 +53,7 @@ public class YunpianSms {
         Map<String, String> params = new HashMap<String, String>();
         params.put("apikey", this.getApiKey());
         params.put("text", content);
+        params.put("web", mobile);
         params.put("mobile", mobile);
         String result= HttpService.doHttpClientPost(SMS_SEND, params);
         return result;

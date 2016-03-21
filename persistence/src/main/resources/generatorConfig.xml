@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 注意修改此处的驱动包位置-->
+    <classPathEntry location="G:\localRepo\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar"/>
+    <context id="MySQL" targetRuntime="MyBatis3">
+        <!--去除注释  -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://120.25.251.106:3306/mycat_advisor"
+                        userId="advisor" password="123456"></jdbcConnection>
+        <javaModelGenerator targetPackage="org.apache.mycat.advisor.persistence.model" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="org.apache.mycat.advisor.persistence.mapper" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.apache.mycat.advisor.persistence.dao"
+                             targetProject="MAVEN">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <table tableName="authmethod" domainObjectName="AuthMethod"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="authone" domainObjectName="AuthOne"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="dic_order_type" domainObjectName="DicOrderType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="dic_problem_type" domainObjectName="DicProblemType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="dic_technological_type" domainObjectName="DicTechnologicalType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="examine_operate" domainObjectName="ExamineOperate"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="examine_person" domainObjectName="ExaminePerson"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="examine_step" domainObjectName="ExamineStep"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="examinetemplet" domainObjectName="ExamineTemplet"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="pay_channel" domainObjectName="Pay_Channel"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="pay_flow" domainObjectName="PayFlow"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="rel_menu_role" domainObjectName="RelMenuRole"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="rel_resource_role" domainObjectName="RelResourceRole"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="rel_user_role" domainObjectName="RelUserRole"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="sensitiveword" domainObjectName="SensitiveWord"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="system_param" domainObjectName="SystemParam"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_adviser_score" domainObjectName="TabAdviserScore"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_advisor_problem_type" domainObjectName="TabAdvisorProblemType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_advisor_technological_type" domainObjectName="TabAdvisorTechnologicalType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_company" domainObjectName="TabCompany"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_menu" domainObjectName="TabMenu"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_order" domainObjectName="TabOrder"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_post_info" domainObjectName="TabPostInfo"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_problem" domainObjectName="TabProblem"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_problem_evaluate" domainObjectName="TabProblemEvaluate"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_problem_leave_msg" domainObjectName="TabProblemLeaveMsg"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_problem_warehouse" domainObjectName="TabProblemWarehouse"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_resource" domainObjectName="TabResource"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_role" domainObjectName="TabRole"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_user" domainObjectName="TabUser"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_user_like_consultant" domainObjectName="TabUserLikeConsultant"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_user_like_type" domainObjectName="TabUserLikeType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_user_login_info" domainObjectName="TabUserLoginInfo"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_user_type" domainObjectName="TabUserType"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_vip" domainObjectName="TabVip"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="tab_vip_buyinfo" domainObjectName="TabVipBuyInfo"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false">
+            <!-- 是否使用表源字段作为Model属性名称 -->
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+    </context>
+</generatorConfiguration>

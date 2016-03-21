@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.apache.mycat.advisor.persistence.dao.ExamineTempletMapper" >
+  <resultMap id="BaseResultMap" type="org.apache.mycat.advisor.persistence.model.ExamineTemplet" >
+    <id column="templateid" property="templateid" jdbcType="INTEGER" />
+    <result column="examinetype" property="examinetype" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column="lastupdatetime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    templateid, examinetype, url, describe, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from examinetemplet
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from examinetemplet
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.apache.mycat.advisor.persistence.model.ExamineTemplet" >
+    insert into examinetemplet (templateid, examinetype, url, 
+      describe, lastupdatetime)
+    values (#{templateid,jdbcType=INTEGER}, #{examinetype,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{describe,jdbcType=VARCHAR}, #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.apache.mycat.advisor.persistence.model.ExamineTemplet" >
+    insert into examinetemplet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        templateid,
+      </if>
+      <if test="examinetype != null" >
+        examinetype,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="templateid != null" >
+        #{templateid,jdbcType=INTEGER},
+      </if>
+      <if test="examinetype != null" >
+        #{examinetype,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.apache.mycat.advisor.persistence.model.ExamineTemplet" >
+    update examinetemplet
+    <set >
+      <if test="examinetype != null" >
+        examinetype = #{examinetype,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.apache.mycat.advisor.persistence.model.ExamineTemplet" >
+    update examinetemplet
+    set examinetype = #{examinetype,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR},
+      lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where templateid = #{templateid,jdbcType=INTEGER}
+  </update>
+</mapper>
