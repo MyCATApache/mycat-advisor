@@ -16,16 +16,23 @@ public class SecurityInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return false;
+
+        System.out.println("pre:"+request.getRequestURI());
+        /*if (request.getRequestURI().equals("/um/company/list")) {
+            response.sendError(403);
+            return false;
+        }*/
+
+        return true;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
+        //System.out.println("post:"+request.getRequestURI());
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
+        //System.out.println("after:"+request.getRequestURI());
     }
 }

@@ -1,0 +1,120 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{if id == null }}新增{{else}}修改{{/if}}</h4>
+</div>
+<form class="form-horizontal form-validate" id="doorSaveForm" method="post" action="um/company/save">
+    <input name="id" type="hidden" value="{{id}}">
+    {{if id != null }}
+    <input name="insertTime" type="hidden" value="{{insertTime | dateFormat}}">
+    {{/if}}
+
+
+    <!--<input name="status" type="hidden" value="{{status}}">-->
+    <input name="delFlag" type="hidden" value="{{delFlag}}">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name" class="col-sm-4 control-label">公司名称</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="name" name="name"
+                           placeholder="公司名称" value="{{name}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="industry" class="col-sm-4 control-label">创办时间</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control date-picker validate[required,maxSize[16]]" id="createDate" name="createDate"
+                           placeholder="所在行业" value="{{createDate}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="industry" class="col-sm-4 control-label">所在行业</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="industry" name="industry"
+                           placeholder="所在行业" value="{{industry}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="peopleNum" class="col-sm-4 control-label">公司人数</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="peopleNum" name="peopleNum"
+                           placeholder="公司人数" value="{{peopleNum}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="telephone" class="col-sm-4 control-label">联系电话</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="telephone" name="telephone"
+                           placeholder="联系电话" value="{{telephone}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-sm-4 control-label">公司地址</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[50]]" id="address" name="address"
+                           placeholder="公司地址" value="{{address}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="isMarket" class="col-sm-4 control-label">是否上市</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="radio" id="isMarket" name="isMarket" value="1"  {{if isMarket===1}} checked{{/if}}/> 是
+                    <input type="radio" name="isMarket" value="0" {{if isMarket===0}} checked{{/if}}/> 否
+
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="stockCode" class="col-sm-4 control-label">股票代码</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[50]]" id="stockCode" name="stockCode"
+                           placeholder="股票代码" value="{{stockCode}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="note" class="col-sm-4 control-label">备注</label>
+
+            <div class="col-sm-5">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm validate[required,maxSize[16]]" id="note" name="note"
+                           placeholder="备注" value="{{note}}">
+                </div>
+                <small class="help-block">&nbsp;</small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-save">{{lang.btn.save}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{lang.btn.close}}</button>
+    </div>
+</form>

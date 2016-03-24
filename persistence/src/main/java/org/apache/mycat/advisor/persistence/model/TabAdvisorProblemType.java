@@ -10,12 +10,13 @@ import javax.persistence.Table;
  */
 @Table(name = "tab_advisor_problem_type")
 public class TabAdvisorProblemType {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long typeId;
     private Long advisorId;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

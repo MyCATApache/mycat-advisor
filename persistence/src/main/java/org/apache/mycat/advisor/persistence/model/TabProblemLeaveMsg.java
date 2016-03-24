@@ -9,8 +9,10 @@ import java.sql.Timestamp;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_problem_leave_msg", schema = "", catalog = "mycat_advisor")
+@Table(name = "tab_problem_leave_msg")
 public class TabProblemLeaveMsg {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long problemId;
     private Long fromId;
@@ -21,8 +23,7 @@ public class TabProblemLeaveMsg {
     private Timestamp updateTime;
     private Integer status;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

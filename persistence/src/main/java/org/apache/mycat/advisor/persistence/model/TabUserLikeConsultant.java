@@ -8,14 +8,15 @@ import javax.persistence.Table;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_user_like_consultant", schema = "", catalog = "mycat_advisor")
+@Table(name = "tab_user_like_consultant")
 public class TabUserLikeConsultant {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long userId;
     private Long consultantId;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

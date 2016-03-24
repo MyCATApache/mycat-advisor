@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,13 +10,20 @@ import java.sql.Timestamp;
  */
 @Table(name = "persistent_logins")
 public class PersistentLogins {
+
+    @Column(name = "USERNAME", nullable = true, insertable = true, updatable = true, length = 64)
     private String username;
+    @Id
+    @Column(name = "SERIES", nullable = false, insertable = true, updatable = true, length = 64)
     private String series;
+
+    @Column(name = "TOKEN", nullable = true, insertable = true, updatable = true, length = 64)
     private String token;
+
+    @Column(name = "LAST_USED", nullable = false, insertable = true, updatable = true)
     private Timestamp lastUsed;
 
-    @Basic
-    @Column(name = "USERNAME", nullable = true, insertable = true, updatable = true, length = 64)
+
     public String getUsername() {
         return username;
     }
@@ -26,8 +32,7 @@ public class PersistentLogins {
         this.username = username;
     }
 
-    @Id
-    @Column(name = "SERIES", nullable = false, insertable = true, updatable = true, length = 64)
+
     public String getSeries() {
         return series;
     }
@@ -36,8 +41,7 @@ public class PersistentLogins {
         this.series = series;
     }
 
-    @Basic
-    @Column(name = "TOKEN", nullable = true, insertable = true, updatable = true, length = 64)
+
     public String getToken() {
         return token;
     }
@@ -46,8 +50,7 @@ public class PersistentLogins {
         this.token = token;
     }
 
-    @Basic
-    @Column(name = "LAST_USED", nullable = false, insertable = true, updatable = true)
+
     public Timestamp getLastUsed() {
         return lastUsed;
     }

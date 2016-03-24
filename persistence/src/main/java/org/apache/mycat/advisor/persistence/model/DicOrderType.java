@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,14 +9,23 @@ import javax.persistence.Table;
  */
 @Table(name = "dic_order_type")
 public class DicOrderType {
-    private Long id;
-    private String name;
-    private String code;
-    private Integer status;
-    private Integer delFlag;
-
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    private Long id;
+
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 50)
+    private String name;
+
+    @Column(name = "code", nullable = true, insertable = true, updatable = true, length = 50)
+    private String code;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Integer status;
+
+    @Column(name = "del_flag", nullable = true, insertable = true, updatable = true)
+    private Integer delFlag;
+
+
     public Long getId() {
         return id;
     }
@@ -26,8 +34,7 @@ public class DicOrderType {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 50)
+
     public String getName() {
         return name;
     }
@@ -36,8 +43,7 @@ public class DicOrderType {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "code", nullable = true, insertable = true, updatable = true, length = 50)
+
     public String getCode() {
         return code;
     }
@@ -46,8 +52,7 @@ public class DicOrderType {
         this.code = code;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Integer getStatus() {
         return status;
     }
@@ -56,8 +61,7 @@ public class DicOrderType {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "del_flag", nullable = true, insertable = true, updatable = true)
+
     public Integer getDelFlag() {
         return delFlag;
     }

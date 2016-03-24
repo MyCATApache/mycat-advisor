@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,20 +10,41 @@ import java.sql.Timestamp;
  */
 @Table(name = "examine_step")
 public class ExamineStep {
-    private Long examineid;
-    private Integer templateid;
-    private Byte curstep;
-    private Long ownerid;
-    private Long questionid;
-    private String describe;
-    private Byte status;
-    private Byte priority;
-    private Timestamp starttime;
-    private Timestamp endtime;
-    private Timestamp lastupdatetime;
-
     @Id
     @Column(name = "examineid", nullable = false, insertable = true, updatable = true)
+    private Long examineid;
+
+    @Column(name = "templateid", nullable = true, insertable = true, updatable = true)
+    private Integer templateid;
+
+    @Column(name = "curstep", nullable = true, insertable = true, updatable = true)
+    private Byte curstep;
+
+    @Column(name = "ownerid", nullable = true, insertable = true, updatable = true)
+    private Long ownerid;
+
+    @Column(name = "questionid", nullable = true, insertable = true, updatable = true)
+    private Long questionid;
+
+    @Column(name = "describe", nullable = true, insertable = true, updatable = true, length = 256)
+    private String describe;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Byte status;
+
+    @Column(name = "priority", nullable = true, insertable = true, updatable = true)
+    private Byte priority;
+
+    @Column(name = "starttime", nullable = true, insertable = true, updatable = true)
+    private Timestamp starttime;
+
+    @Column(name = "endtime", nullable = true, insertable = true, updatable = true)
+    private Timestamp endtime;
+
+    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+    private Timestamp lastupdatetime;
+
+
     public Long getExamineid() {
         return examineid;
     }
@@ -33,8 +53,7 @@ public class ExamineStep {
         this.examineid = examineid;
     }
 
-    @Basic
-    @Column(name = "templateid", nullable = true, insertable = true, updatable = true)
+
     public Integer getTemplateid() {
         return templateid;
     }
@@ -43,8 +62,7 @@ public class ExamineStep {
         this.templateid = templateid;
     }
 
-    @Basic
-    @Column(name = "curstep", nullable = true, insertable = true, updatable = true)
+
     public Byte getCurstep() {
         return curstep;
     }
@@ -53,8 +71,7 @@ public class ExamineStep {
         this.curstep = curstep;
     }
 
-    @Basic
-    @Column(name = "ownerid", nullable = true, insertable = true, updatable = true)
+
     public Long getOwnerid() {
         return ownerid;
     }
@@ -63,8 +80,7 @@ public class ExamineStep {
         this.ownerid = ownerid;
     }
 
-    @Basic
-    @Column(name = "questionid", nullable = true, insertable = true, updatable = true)
+
     public Long getQuestionid() {
         return questionid;
     }
@@ -73,8 +89,7 @@ public class ExamineStep {
         this.questionid = questionid;
     }
 
-    @Basic
-    @Column(name = "describe", nullable = true, insertable = true, updatable = true, length = 256)
+
     public String getDescribe() {
         return describe;
     }
@@ -83,8 +98,7 @@ public class ExamineStep {
         this.describe = describe;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Byte getStatus() {
         return status;
     }
@@ -93,8 +107,7 @@ public class ExamineStep {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "priority", nullable = true, insertable = true, updatable = true)
+
     public Byte getPriority() {
         return priority;
     }
@@ -103,8 +116,7 @@ public class ExamineStep {
         this.priority = priority;
     }
 
-    @Basic
-    @Column(name = "starttime", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getStarttime() {
         return starttime;
     }
@@ -113,8 +125,7 @@ public class ExamineStep {
         this.starttime = starttime;
     }
 
-    @Basic
-    @Column(name = "endtime", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getEndtime() {
         return endtime;
     }
@@ -123,8 +134,7 @@ public class ExamineStep {
         this.endtime = endtime;
     }
 
-    @Basic
-    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+
     public Timestamp getLastupdatetime() {
         return lastupdatetime;
     }

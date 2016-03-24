@@ -10,6 +10,8 @@ import javax.persistence.Table;
  */
 @Table(name = "sys_resources")
 public class SysResources {
+    @Id
+    @Column(name = "RESOURCE_ID", nullable = false, insertable = true, updatable = true)
     private Long resourceId;
     private String resourceType;
     private String resourceName;
@@ -20,8 +22,7 @@ public class SysResources {
     private Integer issys;
     private Long moduleId;
 
-    @Id
-    @Column(name = "RESOURCE_ID", nullable = false, insertable = true, updatable = true)
+
     public Long getResourceId() {
         return resourceId;
     }

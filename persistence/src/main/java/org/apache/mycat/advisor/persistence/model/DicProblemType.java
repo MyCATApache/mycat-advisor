@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,20 +8,37 @@ import java.sql.Timestamp;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "dic_problem_type", schema = "", catalog = "mycat_advisor")
+@Table(name = "dic_problem_type")
 public class DicProblemType {
-    private Long id;
-    private String name;
-    private String alias;
-    private String code;
-    private Integer sort;
-    private Timestamp insertTime;
-    private Timestamp updateTime;
-    private Integer status;
-    private Integer delFlag;
-
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    private Long id;
+
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50)
+    private String name;
+
+    @Column(name = "alias", nullable = true, insertable = true, updatable = true, length = 50)
+    private String alias;
+
+    @Column(name = "code", nullable = false, insertable = true, updatable = true, length = 50)
+    private String code;
+
+    @Column(name = "sort", nullable = false, insertable = true, updatable = true)
+    private Integer sort;
+
+    @Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
+    private Timestamp insertTime;
+
+    @Column(name = "update_time", nullable = true, insertable = true, updatable = true)
+    private Timestamp updateTime;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Integer status;
+
+    @Column(name = "del_flag", nullable = false, insertable = true, updatable = true)
+    private Integer delFlag;
+
+
     public Long getId() {
         return id;
     }
@@ -31,8 +47,7 @@ public class DicProblemType {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50)
+
     public String getName() {
         return name;
     }
@@ -41,8 +56,7 @@ public class DicProblemType {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "alias", nullable = true, insertable = true, updatable = true, length = 50)
+
     public String getAlias() {
         return alias;
     }
@@ -51,8 +65,7 @@ public class DicProblemType {
         this.alias = alias;
     }
 
-    @Basic
-    @Column(name = "code", nullable = false, insertable = true, updatable = true, length = 50)
+
     public String getCode() {
         return code;
     }
@@ -61,8 +74,7 @@ public class DicProblemType {
         this.code = code;
     }
 
-    @Basic
-    @Column(name = "sort", nullable = false, insertable = true, updatable = true)
+
     public Integer getSort() {
         return sort;
     }
@@ -71,8 +83,7 @@ public class DicProblemType {
         this.sort = sort;
     }
 
-    @Basic
-    @Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getInsertTime() {
         return insertTime;
     }
@@ -81,8 +92,7 @@ public class DicProblemType {
         this.insertTime = insertTime;
     }
 
-    @Basic
-    @Column(name = "update_time", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getUpdateTime() {
         return updateTime;
     }
@@ -91,8 +101,7 @@ public class DicProblemType {
         this.updateTime = updateTime;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Integer getStatus() {
         return status;
     }
@@ -101,8 +110,7 @@ public class DicProblemType {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "del_flag", nullable = false, insertable = true, updatable = true)
+
     public Integer getDelFlag() {
         return delFlag;
     }

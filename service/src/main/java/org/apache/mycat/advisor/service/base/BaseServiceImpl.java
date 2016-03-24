@@ -56,7 +56,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     }
 
     @Override
-    public T get(Long id) {
+    public T get(long id) {
         return myMapper().selectByPrimaryKey(id);
     }
 

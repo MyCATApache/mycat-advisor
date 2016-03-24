@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.3.RELEASE</version>
+    </parent>
 
     <groupId>org.apache.mycat.advisor</groupId>
     <artifactId>root</artifactId>
@@ -252,28 +257,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <build>
+    <!--<build>
         <finalName>mycat-advisor</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring.boot.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.springframework</groupId>
-                            <artifactId>springloaded</artifactId>
-                            <version>1.2.5.RELEASE</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -293,7 +283,7 @@
                     </configuration>
                     <version>3.5.1</version>
                 </plugin>
-                <!-- 打包及拷贝依赖jar-->
+                &lt;!&ndash; 打包及拷贝依赖jar&ndash;&gt;
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -309,18 +299,18 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.10</version>
                 </plugin>
-                <!-- 资源文件 -->
+                &lt;!&ndash; 资源文件 &ndash;&gt;
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>2.7</version>
                 </plugin>
-                <!--  源码打包插件-->
+                &lt;!&ndash;  源码打包插件&ndash;&gt;
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>
+    </build>-->
 </project>

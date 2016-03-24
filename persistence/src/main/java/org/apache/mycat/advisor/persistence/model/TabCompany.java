@@ -4,30 +4,66 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by cjl on 2016/3/20.
  */
 @Table(name = "tab_company")
 public class TabCompany {
-    private Long id;
-    private String name;
-    private String note;
-    private Integer peopleNum;
-    private Date createDate;
-    private Integer isMarket;
-    private String stockCode;
-    private String address;
-    private String industry;
-    private Timestamp insertTime;
-    private Timestamp updateTime;
-    private String telephone;
-    private Integer delFlag;
-
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    private Long id;
+    /**
+     * 公司名称
+     */
+    private String name;
+    /**
+     * 备注
+     */
+    private String note;
+    /**
+     * 公司人数  50，100，200，500，1000，5000
+     */
+    private Integer peopleNum;
+    /**
+     * 创建时间
+     */
+    private String createDate;
+    /**
+     * 是否上市  1：上市，0：没上市
+     */
+    private Integer isMarket;
+    /**
+     * 股票代码
+     */
+    private String stockCode;
+    /**
+     * 地址
+     */
+    private String address;
+    /**
+     * 所在行业
+     */
+    private String industry;
+    /**
+     * 插入时间
+     */
+    private Date insertTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 联系电话
+     */
+    private String telephone;
+    /**
+     * 删除标记
+     */
+    private Integer delFlag;
+
+
     public Long getId() {
         return id;
     }
@@ -68,11 +104,11 @@ public class TabCompany {
 
     @Basic
     @Column(name = "create_date", nullable = true, insertable = true, updatable = true)
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
@@ -118,21 +154,21 @@ public class TabCompany {
 
     @Basic
     @Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
-    public Timestamp getInsertTime() {
+    public Date getInsertTime() {
         return insertTime;
     }
 
-    public void setInsertTime(Timestamp insertTime) {
+    public void setInsertTime(Date insertTime) {
         this.insertTime = insertTime;
     }
 
     @Basic
     @Column(name = "update_time", nullable = true, insertable = true, updatable = true)
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

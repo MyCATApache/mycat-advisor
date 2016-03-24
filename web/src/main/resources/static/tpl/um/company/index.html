@@ -1,0 +1,80 @@
+<div class="container">
+	{{include '../../public/breadcrumbs'}}
+
+	<div class="card">
+		<div class="card-header">
+			<h2>公司信息管理</h2>
+			<ul class="actions">
+				<li>
+					<a href="#um/company/init?tpl=um/company/save" class="btn-modal">
+						<i class="zmdi zmdi-plus"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="bootgrid-header container-fluid">
+			<form id="frmSearch" action="#um/company/list?tpl=um/company/save" role="form">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="zmdi zmdi-search"></i></span>
+
+							<div class="fg-line">
+								<input type="text" class="form-control auto-complete" name="code"
+									   data-url="_data/typeahead/all.json" value="{{query.code}}" hidden="true"
+									   placeholder="名称和编码进行搜索">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-primary btn-sm m-t-5 waves-effect btn-search">
+							{{lang.btn.search}}
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-ellipsis">
+				<thead>
+				<tr>
+					<th width="5%">#</th>
+					<th width="10%">公司名称</th>
+					<th width="10%">公司规模</th>
+					<th width="13%">创办时间</th>
+					<th width="15%">是否上市</th>
+					<th width="15%">联系电话</th>
+					<th width="*">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				{{each list}}
+				<tr>
+					<td>{{$index+1}}</td>
+					<td title="{{$value.name}}">{{$value.name}}</td>
+					<td title="{{$value.peopleNum}}">
+						{{$value.peopleNum}}
+					</td>
+					<td title="{{$value.createDate}}">{{$value.createDate}}</td>
+					<td title="">{{if $value.isMarket==1 }}已上市{{else}}未上市{{/if}}</td>
+					<td title="">{{$value.telephone}}</td>
+					<td>
+						<button type="button" class="btn btn-xs btn-default btn-icon btn-modal waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+								 data-href="um/company/get/{{$value.id}}?tpl=um/company/save">
+							<span class="zmdi zmdi-edit"></span> </button>
+						<!--<button type="button" class="btn btn-xs btn-default btn-icon btn-modal waves-effect waves-circle waves-float waves-effect waves-circle waves-float"
+								 data-href="sm/role/menu/{{$value.id}}?tpl=sm/role/tree">
+							<span class="zmdi zmdi-account"></span> </button>-->
+						<button type="button" class="btn btn-xs btn-danger btn-icon btn-del"
+								data-url="um/company/del/{{$value.id}}">
+							<span class="zmdi zmdi-delete"></span> </button>
+					</td>
+				</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+		{{#pagination}}
+	</div>
+</div>

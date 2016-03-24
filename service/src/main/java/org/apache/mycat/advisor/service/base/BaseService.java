@@ -10,11 +10,11 @@ import java.util.Map;
 public interface BaseService<T> {
     Page<T> page(Map<String, Object> param);
 
-    boolean save(T o);
+    boolean  save(T o);
 
     boolean update(T o);
 
     boolean delete(Long id);
 
-    T get(Long id);
+    T get(long id);
 }

@@ -6,10 +6,20 @@
 
     <select id="findSysAuthoritiesByUsername" resultType="org.apache.mycat.advisor.persistence.model.SysAuthorities">
 <![CDATA[
-      SELECT * FROM SYS_AUTHORITIES WHERE AUTHORITY_ID IN(
-                SELECT DISTINCT AUTHORITY_ID FROM SYS_ROLES_AUTHORITIES  S1
-                JOIN SYS_USERS_ROLES S2 ON S1.ROLE_ID = S2.ROLE_ID
-                JOIN SYS_USERS S3 ON S3.USER_ID = S2.USER_ID AND S3.USERNAME= #{username})
+      SELECT
+	*
+FROM
+	SYS_AUTHORITIES
+WHERE
+	AUTHORITY_ID IN (
+		SELECT DISTINCT
+			AUTHORITY_ID
+		FROM
+			SYS_ROLES_AUTHORITIES S1
+		JOIN sys_users_roles ur ON S1.ROLE_ID = ur.tab_id
+		JOIN Tab_user_info inf ON inf.id = ur.tab_id
+		AND inf.username = #{username}
+	)
     ]]>
     </select>
 

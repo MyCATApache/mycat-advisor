@@ -10,6 +10,8 @@ import javax.persistence.Table;
  */
 @Table(name = "sys_modules")
 public class SysModules {
+    @Id
+    @Column(name = "MODULE_ID", nullable = false, insertable = true, updatable = true)
     private Long moduleId;
     private String moduleName;
     private String moduleDesc;
@@ -23,8 +25,7 @@ public class SysModules {
     private Integer enable;
     private Integer priority;
 
-    @Id
-    @Column(name = "MODULE_ID", nullable = false, insertable = true, updatable = true)
+
     public Long getModuleId() {
         return moduleId;
     }

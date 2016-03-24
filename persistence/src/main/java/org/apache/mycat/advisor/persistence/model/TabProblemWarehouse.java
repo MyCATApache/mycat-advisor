@@ -7,12 +7,28 @@ import java.sql.Timestamp;
 /**
  * Created by cjl on 2016/3/20.
  */
-@javax.persistence.Table(name = "tab_problem_warehouse", schema = "", catalog = "mycat_advisor")
+@javax.persistence.Table(name = "tab_problem_warehouse")
 public class TabProblemWarehouse {
-    private Long id;
-
     @Id
     @javax.persistence.Column(name = "id", nullable = false, insertable = true, updatable = true)
+    private Long id;
+    private Long technologyTypeId;
+    private Long problemTypeId;
+    private String problemDescribe;
+    private String problemKey;
+    private String expectDescribe;
+    private Long submitUserId;
+    private Long processManId;
+    private String processDescribe;
+    private Integer processStep;
+    private Timestamp stepUpdateTime;
+    private Timestamp insertTime;
+    private Timestamp processTime;
+    private Integer status;
+    private Integer clickRate;
+    private Integer sort;
+    private Integer delFlag;
+
     public Long getId() {
         return id;
     }
@@ -20,8 +36,6 @@ public class TabProblemWarehouse {
     public void setId(Long id) {
         this.id = id;
     }
-
-    private Long technologyTypeId;
 
     @Basic
     @javax.persistence.Column(name = "technology_type_id", nullable = true, insertable = true, updatable = true)
@@ -33,8 +47,6 @@ public class TabProblemWarehouse {
         this.technologyTypeId = technologyTypeId;
     }
 
-    private Long problemTypeId;
-
     @Basic
     @javax.persistence.Column(name = "problem_type_id", nullable = true, insertable = true, updatable = true)
     public Long getProblemTypeId() {
@@ -44,8 +56,6 @@ public class TabProblemWarehouse {
     public void setProblemTypeId(Long problemTypeId) {
         this.problemTypeId = problemTypeId;
     }
-
-    private String problemDescribe;
 
     @Basic
     @javax.persistence.Column(name = "problem_describe", nullable = true, insertable = true, updatable = true, length = 65535)
@@ -57,8 +67,6 @@ public class TabProblemWarehouse {
         this.problemDescribe = problemDescribe;
     }
 
-    private String problemKey;
-
     @Basic
     @javax.persistence.Column(name = "problem_key", nullable = true, insertable = true, updatable = true, length = 50)
     public String getProblemKey() {
@@ -68,8 +76,6 @@ public class TabProblemWarehouse {
     public void setProblemKey(String problemKey) {
         this.problemKey = problemKey;
     }
-
-    private String expectDescribe;
 
     @Basic
     @javax.persistence.Column(name = "expect_describe", nullable = true, insertable = true, updatable = true, length = 65535)
@@ -81,8 +87,6 @@ public class TabProblemWarehouse {
         this.expectDescribe = expectDescribe;
     }
 
-    private Long submitUserId;
-
     @Basic
     @javax.persistence.Column(name = "submit_user_id", nullable = true, insertable = true, updatable = true)
     public Long getSubmitUserId() {
@@ -92,8 +96,6 @@ public class TabProblemWarehouse {
     public void setSubmitUserId(Long submitUserId) {
         this.submitUserId = submitUserId;
     }
-
-    private Long processManId;
 
     @Basic
     @javax.persistence.Column(name = "process_man_id", nullable = true, insertable = true, updatable = true)
@@ -105,8 +107,6 @@ public class TabProblemWarehouse {
         this.processManId = processManId;
     }
 
-    private String processDescribe;
-
     @Basic
     @javax.persistence.Column(name = "process_describe", nullable = true, insertable = true, updatable = true, length = 65535)
     public String getProcessDescribe() {
@@ -116,8 +116,6 @@ public class TabProblemWarehouse {
     public void setProcessDescribe(String processDescribe) {
         this.processDescribe = processDescribe;
     }
-
-    private Integer processStep;
 
     @Basic
     @javax.persistence.Column(name = "process_step", nullable = true, insertable = true, updatable = true)
@@ -129,8 +127,6 @@ public class TabProblemWarehouse {
         this.processStep = processStep;
     }
 
-    private Timestamp stepUpdateTime;
-
     @Basic
     @javax.persistence.Column(name = "step_update_time", nullable = true, insertable = true, updatable = true)
     public Timestamp getStepUpdateTime() {
@@ -140,8 +136,6 @@ public class TabProblemWarehouse {
     public void setStepUpdateTime(Timestamp stepUpdateTime) {
         this.stepUpdateTime = stepUpdateTime;
     }
-
-    private Timestamp insertTime;
 
     @Basic
     @javax.persistence.Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
@@ -153,8 +147,6 @@ public class TabProblemWarehouse {
         this.insertTime = insertTime;
     }
 
-    private Timestamp processTime;
-
     @Basic
     @javax.persistence.Column(name = "process_time", nullable = true, insertable = true, updatable = true)
     public Timestamp getProcessTime() {
@@ -164,8 +156,6 @@ public class TabProblemWarehouse {
     public void setProcessTime(Timestamp processTime) {
         this.processTime = processTime;
     }
-
-    private Integer status;
 
     @Basic
     @javax.persistence.Column(name = "status", nullable = true, insertable = true, updatable = true)
@@ -177,8 +167,6 @@ public class TabProblemWarehouse {
         this.status = status;
     }
 
-    private Integer clickRate;
-
     @Basic
     @javax.persistence.Column(name = "click_rate", nullable = true, insertable = true, updatable = true)
     public Integer getClickRate() {
@@ -189,8 +177,6 @@ public class TabProblemWarehouse {
         this.clickRate = clickRate;
     }
 
-    private Integer sort;
-
     @Basic
     @javax.persistence.Column(name = "sort", nullable = true, insertable = true, updatable = true)
     public Integer getSort() {
@@ -200,8 +186,6 @@ public class TabProblemWarehouse {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
-
-    private Integer delFlag;
 
     @Basic
     @javax.persistence.Column(name = "del_flag", nullable = true, insertable = true, updatable = true)

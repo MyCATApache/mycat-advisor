@@ -6,9 +6,9 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/mycat_advisor
+        url: jdbc:mysql://120.25.251.106:3306/advisor
         #mysql://120.25.251.106:3306/mycat_advisor
-        username: root
+        username: advisor
         password: 123456
         # druid数据源
         type: com.alibaba.druid.pool.DruidDataSource

@@ -1,7 +1,10 @@
 package org.apache.mycat.advisor.web.controller;
 
+import org.apache.mycat.advisor.persistence.model.TabUserInfo;
+import org.apache.mycat.advisor.service.um.userinfo.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +28,8 @@ import java.util.Map;
 @RequestMapping("/")
 public class IndexController {
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
+    @Autowired
+    UserInfoService userInfoService;
 
     @RequestMapping("")
     public String root() {
@@ -31,49 +37,31 @@ public class IndexController {
     }
 
     @RequestMapping("index")
-    public String index(ModelAndView modelAndView) {
+    public String index(HttpServletRequest request) {
+        TabUserInfo userInfo = (TabUserInfo) request.getSession().getAttribute("session_user");
+        if (userInfo != null) {
+            return "index";
+        }
 
-
-        return "index";
+        return "login";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage(String error) {
-        LOGGER.debug("Getting login page, error={}", error);
-        if (error != null) {
-            error = "登录失败，请检查用户名";
-        }
-        return new ModelAndView("login", "msg", error);
+    public ModelAndView getLoginPage() {
+        return new ModelAndView("login");
     }
-
-    @RequestMapping("login/error")
-    public ModelAndView error() {
-        ModelAndView modelAndView = new ModelAndView("login");
-        modelAndView.addObject("msg", "登录失败，请检查用户名");
-
-        return modelAndView;
-    }
-
-    @RequestMapping("index/success")
+    @RequestMapping(value = "doLogin", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,String> success() {
-        Map<String, String> data = new HashMap<>();
-        data.put("flag", "true");
-        data.put("msg", "登陆成功");
+    public Map<String,Object> doLogin(HttpServletRequest request,@RequestParam Map<String,String> param) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        TabUserInfo userInfo = userInfoService.findUserByUsername(param.get("username"));
+        String password = param.get("password");
+        if (userInfo != null && userInfo.getPassword().equals(password)) {
+            request.getSession().setAttribute("session_user",userInfo);
+            data.put("flag", "true");
+        }else
+            data.put("msg", "用户名或密码不正确");
         return data;
     }
 
-
-
-    @RequestMapping("doLogin")
-    @ResponseBody
-    public Map<String, String> login(@RequestParam Map<String, String> param) {
-
-        String username = param.get("username");
-        String password = param.get("password");
-        param.put("flag", "true");
-        System.out.println("username:" + username);
-
-        return param;
-    }
 }

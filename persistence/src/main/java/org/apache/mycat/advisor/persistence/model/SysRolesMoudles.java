@@ -10,12 +10,13 @@ import javax.persistence.Table;
  */
 @Table(name = "sys_roles_moudles")
 public class SysRolesMoudles {
+    @Id
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long moduleId;
     private Long roleId;
 
-    @Id
-    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

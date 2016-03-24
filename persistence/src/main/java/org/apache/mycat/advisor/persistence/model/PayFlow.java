@@ -1,7 +1,8 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
@@ -9,12 +10,44 @@ import java.sql.Time;
 /**
  * Created by cjl on 2016/3/20.
  */
-@javax.persistence.Table(name = "pay_flow")
+@Table(name = "pay_flow")
 public class PayFlow {
-    private Long serialno;
-
     @Id
-    @javax.persistence.Column(name = "serialno", nullable = false, insertable = true, updatable = true)
+    @Column(name = "serialno", nullable = false, insertable = true, updatable = true)
+    private Long serialno;
+    @Column(name = "userid", nullable = true, insertable = true, updatable = true)
+    private Long userid;
+    @Column(name = "channelno", nullable = false, insertable = true, updatable = true, length = 16)
+    private String channelno;
+    @Column(name = "branchbank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String branchbank;
+    @Column(name = "payaccount", nullable = false, insertable = true, updatable = true, length = 64)
+    private String payaccount;
+    @Column(name = "paybank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String paybank;
+    @Column(name = "businesscode", nullable = true, insertable = true, updatable = true, length = 4)
+    private String businesscode;
+    @Column(name = "transactiondate", nullable = true, insertable = true, updatable = true)
+    private Date transactiondate;
+    @Column(name = "transactiontime", nullable = true, insertable = true, updatable = true)
+    private Time transactiontime;
+    @Column(name = "targetuserid", nullable = true, insertable = true, updatable = true)
+    private Long targetuserid;
+    @Column(name = "targetchannelno", nullable = true, insertable = true, updatable = true, length = 16)
+    private String targetchannelno;
+    @Column(name = "targetpayaccount", nullable = true, insertable = true, updatable = true, length = 64)
+    private String targetpayaccount;
+    @Column(name = "targetpaybank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String targetpaybank;
+    @Column(name = "targetbranchbank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String targetbranchbank;
+    @Column(name = "currencytype", nullable = true, insertable = true, updatable = true, length = 3)
+    private String currencytype;
+    @Column(name = "appamount", nullable = true, insertable = true, updatable = true, precision = 4)
+    private BigDecimal appamount;
+    @Column(name = "specification", nullable = true, insertable = true, updatable = true, length = 256)
+    private String specification;
+
     public Long getSerialno() {
         return serialno;
     }
@@ -23,10 +56,6 @@ public class PayFlow {
         this.serialno = serialno;
     }
 
-    private Long userid;
-
-    @Basic
-    @javax.persistence.Column(name = "userid", nullable = true, insertable = true, updatable = true)
     public Long getUserid() {
         return userid;
     }
@@ -35,10 +64,6 @@ public class PayFlow {
         this.userid = userid;
     }
 
-    private String channelno;
-
-    @Basic
-    @javax.persistence.Column(name = "channelno", nullable = false, insertable = true, updatable = true, length = 16)
     public String getChannelno() {
         return channelno;
     }
@@ -47,10 +72,6 @@ public class PayFlow {
         this.channelno = channelno;
     }
 
-    private String branchbank;
-
-    @Basic
-    @javax.persistence.Column(name = "branchbank", nullable = true, insertable = true, updatable = true, length = 128)
     public String getBranchbank() {
         return branchbank;
     }
@@ -59,10 +80,6 @@ public class PayFlow {
         this.branchbank = branchbank;
     }
 
-    private String payaccount;
-
-    @Basic
-    @javax.persistence.Column(name = "payaccount", nullable = false, insertable = true, updatable = true, length = 64)
     public String getPayaccount() {
         return payaccount;
     }
@@ -71,10 +88,6 @@ public class PayFlow {
         this.payaccount = payaccount;
     }
 
-    private String paybank;
-
-    @Basic
-    @javax.persistence.Column(name = "paybank", nullable = true, insertable = true, updatable = true, length = 128)
     public String getPaybank() {
         return paybank;
     }
@@ -83,10 +96,6 @@ public class PayFlow {
         this.paybank = paybank;
     }
 
-    private String businesscode;
-
-    @Basic
-    @javax.persistence.Column(name = "businesscode", nullable = true, insertable = true, updatable = true, length = 4)
     public String getBusinesscode() {
         return businesscode;
     }
@@ -95,10 +104,6 @@ public class PayFlow {
         this.businesscode = businesscode;
     }
 
-    private Date transactiondate;
-
-    @Basic
-    @javax.persistence.Column(name = "transactiondate", nullable = true, insertable = true, updatable = true)
     public Date getTransactiondate() {
         return transactiondate;
     }
@@ -107,10 +112,6 @@ public class PayFlow {
         this.transactiondate = transactiondate;
     }
 
-    private Time transactiontime;
-
-    @Basic
-    @javax.persistence.Column(name = "transactiontime", nullable = true, insertable = true, updatable = true)
     public Time getTransactiontime() {
         return transactiontime;
     }
@@ -119,10 +120,6 @@ public class PayFlow {
         this.transactiontime = transactiontime;
     }
 
-    private Long targetuserid;
-
-    @Basic
-    @javax.persistence.Column(name = "targetuserid", nullable = true, insertable = true, updatable = true)
     public Long getTargetuserid() {
         return targetuserid;
     }
@@ -131,10 +128,6 @@ public class PayFlow {
         this.targetuserid = targetuserid;
     }
 
-    private String targetchannelno;
-
-    @Basic
-    @javax.persistence.Column(name = "targetchannelno", nullable = true, insertable = true, updatable = true, length = 16)
     public String getTargetchannelno() {
         return targetchannelno;
     }
@@ -143,10 +136,6 @@ public class PayFlow {
         this.targetchannelno = targetchannelno;
     }
 
-    private String targetpayaccount;
-
-    @Basic
-    @javax.persistence.Column(name = "targetpayaccount", nullable = true, insertable = true, updatable = true, length = 64)
     public String getTargetpayaccount() {
         return targetpayaccount;
     }
@@ -155,10 +144,6 @@ public class PayFlow {
         this.targetpayaccount = targetpayaccount;
     }
 
-    private String targetpaybank;
-
-    @Basic
-    @javax.persistence.Column(name = "targetpaybank", nullable = true, insertable = true, updatable = true, length = 128)
     public String getTargetpaybank() {
         return targetpaybank;
     }
@@ -167,10 +152,6 @@ public class PayFlow {
         this.targetpaybank = targetpaybank;
     }
 
-    private String targetbranchbank;
-
-    @Basic
-    @javax.persistence.Column(name = "targetbranchbank", nullable = true, insertable = true, updatable = true, length = 128)
     public String getTargetbranchbank() {
         return targetbranchbank;
     }
@@ -179,10 +160,6 @@ public class PayFlow {
         this.targetbranchbank = targetbranchbank;
     }
 
-    private String currencytype;
-
-    @Basic
-    @javax.persistence.Column(name = "currencytype", nullable = true, insertable = true, updatable = true, length = 3)
     public String getCurrencytype() {
         return currencytype;
     }
@@ -191,10 +168,6 @@ public class PayFlow {
         this.currencytype = currencytype;
     }
 
-    private BigDecimal appamount;
-
-    @Basic
-    @javax.persistence.Column(name = "appamount", nullable = true, insertable = true, updatable = true, precision = 4)
     public BigDecimal getAppamount() {
         return appamount;
     }
@@ -203,10 +176,6 @@ public class PayFlow {
         this.appamount = appamount;
     }
 
-    private String specification;
-
-    @Basic
-    @javax.persistence.Column(name = "specification", nullable = true, insertable = true, updatable = true, length = 256)
     public String getSpecification() {
         return specification;
     }

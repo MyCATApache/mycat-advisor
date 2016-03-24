@@ -1,4 +1,3 @@
-<#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <!DOCTYPE html>
 <html lang="zh-CN" class="login-content">
 <head>
@@ -24,7 +23,7 @@
         <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
 
         <div class="fg-line">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+           <#-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">-->
             <input id="pwd" type="password" name="password" class="form-control" placeholder="密码">
         </div>
     </div>
@@ -36,22 +35,14 @@
             记住用户名
         </label>
     </div>
-        <button class="btn btn-login btn-danger btn-float" type="submit"><i class="zmdi zmdi-arrow-forward"></i></button>
-    <#--<a id="login" href="#" class="btn btn-login btn-danger btn-float"></a>-->
+        <#--<button class="btn btn-login btn-danger btn-float" type="submit"><i class="zmdi zmdi-arrow-forward"></i></button>-->
+    <a id="login" href="#" class="btn btn-login btn-danger btn-float"></a>
     </form>
 </div>
 
 <script src="static/lib/js/lib.base.min.js"></script>
 <script>
-    <#if msg??>
-        alert('${msg}');
-
-    </#if>
-
-
-
-
-    /*$(function () {
+    $(function () {
         (function () {
             var keep = localStorage.getItem('login.keep');
             var username = localStorage.getItem('login.username');
@@ -69,18 +60,21 @@
                 localStorage.setItem('login.username', username);
             }
             if (username && pwd) {
-                $.post("login", {
+                $.post("doLogin", {
                     username:username,
-                    password:pwd,
-                    '${_csrf.parameterName}':'${_csrf.token}'
+                    password:pwd
                 }, function (data){
-                    console.log(data);
+                    if(data.flag) {
+                        window.location.href = 'index';
+                    }else {
+                        alert(data.msg);
+                    }
                 }, 'json');
             } else {
                 alert('请输入用户名和密码！');
             }
         });
-    });*/
+    });
 </script>
 </body>
 </html>

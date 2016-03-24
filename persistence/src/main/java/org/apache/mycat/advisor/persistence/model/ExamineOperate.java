@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,17 +10,32 @@ import java.sql.Timestamp;
  */
 @Table(name = "examine_operate")
 public class ExamineOperate {
-    private Long examineid;
-    private Integer templateid;
-    private Byte curstep;
-    private Long questionid;
-    private Long operatorid;
-    private Byte status;
-    private String describe;
-    private Timestamp operatetime;
-
     @Id
     @Column(name = "examineid", nullable = false, insertable = true, updatable = true)
+    private Long examineid;
+
+    @Column(name = "templateid", nullable = true, insertable = true, updatable = true)
+    private Integer templateid;
+
+    @Column(name = "curstep", nullable = true, insertable = true, updatable = true)
+    private Byte curstep;
+
+    @Column(name = "questionid", nullable = true, insertable = true, updatable = true)
+    private Long questionid;
+
+    @Column(name = "operatorid", nullable = true, insertable = true, updatable = true)
+    private Long operatorid;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Byte status;
+
+    @Column(name = "describe", nullable = true, insertable = true, updatable = true, length = 256)
+    private String describe;
+
+    @Column(name = "operatetime", nullable = false, insertable = true, updatable = true)
+    private Timestamp operatetime;
+
+
     public Long getExamineid() {
         return examineid;
     }
@@ -30,8 +44,7 @@ public class ExamineOperate {
         this.examineid = examineid;
     }
 
-    @Basic
-    @Column(name = "templateid", nullable = true, insertable = true, updatable = true)
+
     public Integer getTemplateid() {
         return templateid;
     }
@@ -40,8 +53,7 @@ public class ExamineOperate {
         this.templateid = templateid;
     }
 
-    @Basic
-    @Column(name = "curstep", nullable = true, insertable = true, updatable = true)
+
     public Byte getCurstep() {
         return curstep;
     }
@@ -50,8 +62,7 @@ public class ExamineOperate {
         this.curstep = curstep;
     }
 
-    @Basic
-    @Column(name = "questionid", nullable = true, insertable = true, updatable = true)
+
     public Long getQuestionid() {
         return questionid;
     }
@@ -60,8 +71,7 @@ public class ExamineOperate {
         this.questionid = questionid;
     }
 
-    @Basic
-    @Column(name = "operatorid", nullable = true, insertable = true, updatable = true)
+
     public Long getOperatorid() {
         return operatorid;
     }
@@ -70,8 +80,7 @@ public class ExamineOperate {
         this.operatorid = operatorid;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Byte getStatus() {
         return status;
     }
@@ -80,8 +89,7 @@ public class ExamineOperate {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "describe", nullable = true, insertable = true, updatable = true, length = 256)
+
     public String getDescribe() {
         return describe;
     }
@@ -90,8 +98,7 @@ public class ExamineOperate {
         this.describe = describe;
     }
 
-    @Basic
-    @Column(name = "operatetime", nullable = false, insertable = true, updatable = true)
+
     public Timestamp getOperatetime() {
         return operatetime;
     }

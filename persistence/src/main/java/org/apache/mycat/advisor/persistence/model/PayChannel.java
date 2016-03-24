@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,19 +10,38 @@ import java.sql.Timestamp;
  */
 @Table(name = "pay_channel")
 public class PayChannel {
-    private String channelno;
-    private String channelname;
-    private String channelcode;
-    private String channeltype;
-    private String tradingmethod;
-    private String payaccount;
-    private String paybank;
-    private String branchbank;
-    private Byte status;
-    private Timestamp lastupdatetime;
-
     @Id
     @Column(name = "channelno", nullable = false, insertable = true, updatable = true, length = 16)
+    private String channelno;
+
+    @Column(name = "channelname", nullable = true, insertable = true, updatable = true, length = 64)
+    private String channelname;
+
+    @Column(name = "channelcode", nullable = true, insertable = true, updatable = true, length = 16)
+    private String channelcode;
+
+    @Column(name = "channeltype", nullable = true, insertable = true, updatable = true, length = 2)
+    private String channeltype;
+
+    @Column(name = "tradingmethod", nullable = true, insertable = true, updatable = true, length = 128)
+    private String tradingmethod;
+    @Id
+    @Column(name = "payaccount", nullable = false, insertable = true, updatable = true, length = 64)
+    private String payaccount;
+
+    @Column(name = "paybank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String paybank;
+
+    @Column(name = "branchbank", nullable = true, insertable = true, updatable = true, length = 128)
+    private String branchbank;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Byte status;
+
+    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+    private Timestamp lastupdatetime;
+
+
     public String getChannelno() {
         return channelno;
     }
@@ -32,8 +50,7 @@ public class PayChannel {
         this.channelno = channelno;
     }
 
-    @Basic
-    @Column(name = "channelname", nullable = true, insertable = true, updatable = true, length = 64)
+
     public String getChannelname() {
         return channelname;
     }
@@ -42,8 +59,7 @@ public class PayChannel {
         this.channelname = channelname;
     }
 
-    @Basic
-    @Column(name = "channelcode", nullable = true, insertable = true, updatable = true, length = 16)
+
     public String getChannelcode() {
         return channelcode;
     }
@@ -52,8 +68,7 @@ public class PayChannel {
         this.channelcode = channelcode;
     }
 
-    @Basic
-    @Column(name = "channeltype", nullable = true, insertable = true, updatable = true, length = 2)
+
     public String getChanneltype() {
         return channeltype;
     }
@@ -62,8 +77,7 @@ public class PayChannel {
         this.channeltype = channeltype;
     }
 
-    @Basic
-    @Column(name = "tradingmethod", nullable = true, insertable = true, updatable = true, length = 128)
+
     public String getTradingmethod() {
         return tradingmethod;
     }
@@ -72,8 +86,7 @@ public class PayChannel {
         this.tradingmethod = tradingmethod;
     }
 
-    @Id
-    @Column(name = "payaccount", nullable = false, insertable = true, updatable = true, length = 64)
+
     public String getPayaccount() {
         return payaccount;
     }
@@ -82,8 +95,7 @@ public class PayChannel {
         this.payaccount = payaccount;
     }
 
-    @Basic
-    @Column(name = "paybank", nullable = true, insertable = true, updatable = true, length = 128)
+
     public String getPaybank() {
         return paybank;
     }
@@ -92,8 +104,7 @@ public class PayChannel {
         this.paybank = paybank;
     }
 
-    @Basic
-    @Column(name = "branchbank", nullable = true, insertable = true, updatable = true, length = 128)
+
     public String getBranchbank() {
         return branchbank;
     }
@@ -102,8 +113,7 @@ public class PayChannel {
         this.branchbank = branchbank;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Byte getStatus() {
         return status;
     }
@@ -112,8 +122,7 @@ public class PayChannel {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+
     public Timestamp getLastupdatetime() {
         return lastupdatetime;
     }

@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,19 +10,38 @@ import java.sql.Timestamp;
  */
 @Table(name = "dic_technological_type")
 public class DicTechnologicalType {
-    private Long id;
-    private String alias;
-    private String name;
-    private String code;
-    private Integer sort;
-    private Timestamp insertTime;
-    private Timestamp updateTime;
-    private Integer status;
-    private Integer delFlag;
-    private Long parentId;
-
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    private Long id;
+
+    @Column(name = "alias", nullable = true, insertable = true, updatable = true, length = 50)
+    private String alias;
+
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50)
+    private String name;
+
+    @Column(name = "code", nullable = false, insertable = true, updatable = true, length = 50)
+    private String code;
+
+    @Column(name = "sort", nullable = true, insertable = true, updatable = true)
+    private Integer sort;
+
+    @Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
+    private Timestamp insertTime;
+
+    @Column(name = "update_time", nullable = true, insertable = true, updatable = true)
+    private Timestamp updateTime;
+
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+    private Integer status;
+
+    @Column(name = "del_flag", nullable = true, insertable = true, updatable = true)
+    private Integer delFlag;
+
+    @Column(name = "parent_id", nullable = true, insertable = true, updatable = true)
+    private Long parentId;
+
+
     public Long getId() {
         return id;
     }
@@ -32,8 +50,7 @@ public class DicTechnologicalType {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "alias", nullable = true, insertable = true, updatable = true, length = 50)
+
     public String getAlias() {
         return alias;
     }
@@ -42,8 +59,7 @@ public class DicTechnologicalType {
         this.alias = alias;
     }
 
-    @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50)
+
     public String getName() {
         return name;
     }
@@ -52,8 +68,7 @@ public class DicTechnologicalType {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "code", nullable = false, insertable = true, updatable = true, length = 50)
+
     public String getCode() {
         return code;
     }
@@ -62,8 +77,7 @@ public class DicTechnologicalType {
         this.code = code;
     }
 
-    @Basic
-    @Column(name = "sort", nullable = true, insertable = true, updatable = true)
+
     public Integer getSort() {
         return sort;
     }
@@ -72,8 +86,7 @@ public class DicTechnologicalType {
         this.sort = sort;
     }
 
-    @Basic
-    @Column(name = "insert_time", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getInsertTime() {
         return insertTime;
     }
@@ -82,8 +95,7 @@ public class DicTechnologicalType {
         this.insertTime = insertTime;
     }
 
-    @Basic
-    @Column(name = "update_time", nullable = true, insertable = true, updatable = true)
+
     public Timestamp getUpdateTime() {
         return updateTime;
     }
@@ -92,8 +104,7 @@ public class DicTechnologicalType {
         this.updateTime = updateTime;
     }
 
-    @Basic
-    @Column(name = "status", nullable = true, insertable = true, updatable = true)
+
     public Integer getStatus() {
         return status;
     }
@@ -102,8 +113,7 @@ public class DicTechnologicalType {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "del_flag", nullable = true, insertable = true, updatable = true)
+
     public Integer getDelFlag() {
         return delFlag;
     }
@@ -112,8 +122,7 @@ public class DicTechnologicalType {
         this.delFlag = delFlag;
     }
 
-    @Basic
-    @Column(name = "parent_id", nullable = true, insertable = true, updatable = true)
+
     public Long getParentId() {
         return parentId;
     }

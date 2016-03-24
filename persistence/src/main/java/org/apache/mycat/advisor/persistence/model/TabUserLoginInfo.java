@@ -9,8 +9,10 @@ import java.sql.Timestamp;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_user_login_info", schema = "", catalog = "mycat_advisor")
+@Table(name = "tab_user_login_info")
 public class TabUserLoginInfo {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long userId;
     private Timestamp lastlogintime;

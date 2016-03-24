@@ -8,15 +8,16 @@ import javax.persistence.Table;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_user_type", schema = "", catalog = "mycat_advisor")
+@Table(name = "tab_user_type")
 public class TabUserType {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private String name;
     private String code;
     private Integer status;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

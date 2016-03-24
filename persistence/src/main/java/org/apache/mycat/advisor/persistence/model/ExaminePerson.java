@@ -1,6 +1,5 @@
 package org.apache.mycat.advisor.persistence.model;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,13 +10,20 @@ import java.sql.Timestamp;
  */
 @Table(name = "examine_person")
 public class ExaminePerson {
-    private Integer templateid;
-    private Byte step;
-    private Long operatorid;
-    private Timestamp lastupdatetime;
-
     @Id
     @Column(name = "templateid", nullable = false, insertable = true, updatable = true)
+    private Integer templateid;
+    @Id
+    @Column(name = "step", nullable = false, insertable = true, updatable = true)
+    private Byte step;
+    @Id
+    @Column(name = "operatorid", nullable = false, insertable = true, updatable = true)
+    private Long operatorid;
+
+    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+    private Timestamp lastupdatetime;
+
+
     public Integer getTemplateid() {
         return templateid;
     }
@@ -26,8 +32,7 @@ public class ExaminePerson {
         this.templateid = templateid;
     }
 
-    @Id
-    @Column(name = "step", nullable = false, insertable = true, updatable = true)
+
     public Byte getStep() {
         return step;
     }
@@ -36,8 +41,7 @@ public class ExaminePerson {
         this.step = step;
     }
 
-    @Id
-    @Column(name = "operatorid", nullable = false, insertable = true, updatable = true)
+
     public Long getOperatorid() {
         return operatorid;
     }
@@ -46,8 +50,7 @@ public class ExaminePerson {
         this.operatorid = operatorid;
     }
 
-    @Basic
-    @Column(name = "lastupdatetime", nullable = false, insertable = true, updatable = true)
+
     public Timestamp getLastupdatetime() {
         return lastupdatetime;
     }

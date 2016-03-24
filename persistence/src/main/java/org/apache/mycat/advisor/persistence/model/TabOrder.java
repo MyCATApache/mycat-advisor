@@ -8,8 +8,10 @@ import javax.persistence.Table;
 /**
  * Created by cjl on 2016/3/20.
  */
-@Table(name = "tab_order", schema = "", catalog = "mycat_advisor")
+@Table(name = "tab_order")
 public class TabOrder {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private Long type;
     private Long placeId;
@@ -20,8 +22,7 @@ public class TabOrder {
     private Integer paytype;
     private Integer orderStep;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }

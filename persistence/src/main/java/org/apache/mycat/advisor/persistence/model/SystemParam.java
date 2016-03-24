@@ -11,6 +11,8 @@ import java.sql.Timestamp;
  */
 @Table(name = "system_param")
 public class SystemParam {
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
     private String cKey;
     private String cName;
@@ -19,8 +21,7 @@ public class SystemParam {
     private String validType;
     private Timestamp lastupdatetime;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+
     public Long getId() {
         return id;
     }
